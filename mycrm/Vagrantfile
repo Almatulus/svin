@@ -1,0 +1,179 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure(2) do |config|
+  # The most common configuration options are documented and commented below.
+  # For a complete reference, please see the online documentation at
+  # https://docs.vagrantup.com.
+
+  # Every Vagrant development environment requires a box. You can search for
+  # boxes at https://atlas.hashicorp.com/search.
+  config.vm.box = "ubuntu/xenial64"
+
+  # Disable automatic box update checking. If you disable this, then
+  # boxes will only be checked for updates when the user runs
+  # `vagrant box outdated`. This is not recommended.
+  # config.vm.box_check_update = false
+
+  # Create a forwarded port mapping which allows access to a specific port
+  # within the machine from a port on the host machine. In the example below,
+  # accessing "localhost:8080" will access port 80 on the guest machine.
+  config.vm.network "forwarded_port", guest: 80, host: 8080
+  config.vm.network "forwarded_port", guest: 81, host: 8081
+  config.vm.network "forwarded_port", guest: 82, host: 8082
+  config.vm.network "forwarded_port", guest: 83, host: 8083
+
+  # Create a private network, which allows host-only access to the machine
+  # using a specific IP.
+  config.vm.network "private_network", ip: "192.168.33.10"
+
+  # Create a public network, which generally matched to bridged network.
+  # Bridged networks make the machine appear as another physical device on
+  # your network.
+  # config.vm.network "public_network"
+
+  # Share an additional folder to the guest VM. The first argument is
+  # the path on the host to the actual folder. The second argument is
+  # the path on the guest to mount the folder. And the optional third
+  # argument is a set of non-required options.
+  # config.vm.synced_folder "../data", "/vagrant_data"
+
+  # Provider-specific configuration so you can fine-tune various
+  # backing providers for Vagrant. These expose provider-specific options.
+  # Example for VirtualBox:
+  # config.vm.provider "virtualbox" do |vb|
+  # Display the VirtualBox GUI when booting the machine
+  # vb.gui = false
+  # Customize the amount of memory on the VM:
+  # vb.memory = 1024
+  # vb.cpus = 1
+  # end
+  #
+  # View the documentation for the provider you are using for more
+  # information on available options.
+
+  # Define a Vagrant Push strategy for pushing to Atlas. Other push strategies
+  # such as FTP and Heroku are also available. See the documentation at
+  # https://docs.vagrantup.com/v2/push/atlas.html for more information.
+  # config.push.define "atlas" do |push|
+  #   push.app = "YOUR_ATLAS_USERNAME/YOUR_APPLICATION_NAME"
+  # end
+
+  # Enable provisioning with a shell script. Additional provisioners such as
+  # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
+  # documentation for more information about their specific syntax and use.
+  config.vm.provision "shell", inline: <<-SHELL
+
+    sudo apt-get update
+
+    sudo apt-get install -y redis-server htop nginx php7.0-fpm php7.0-curl php7.0-gd php7.0-intl php-pear php7.0-imap \
+     php7.0-mcrypt php7.0-pspell php7.0-recode php7.0-tidy php7.0-xmlrpc php7.0-xsl postgresql postgresql-contrib php7.0-pgsql \
+     php7.0-mbstring postgresql postgresql-contrib nodejs npm zip git \
+     php-codesniffer pdepend phpcpd phploc phpmd phpdox
+
+    sudo rm /etc/nginx/sites-available/default
+    sudo touch /etc/nginx/sites-available/default
+    sudo chmod 777 /etc/nginx/sites-available/default
+    sudo echo \
+'server {\n\
+    listen 80;\n\
+    root /vagrant/web;\n\
+    index index.php index.html index.htm;\n\
+    server_name _;\n\
+    location / {\n\
+        try_files $uri $uri/ /index.php?$args;\n\
+    }\n\
+    location ~ \.php$ {\n\
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;\n\
+        fastcgi_pass unix:/run/php/php7.0-fpm.sock;\n\
+        fastcgi_index index.php;\n\
+        fastcgi_read_timeout 3600;\n\
+        include fastcgi_params;\n\
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;\n\
+    }\n\
+    location ~ /\.ht {\n\
+        deny all;\n\
+    }\n\
+}\n\
+server {\n\
+    listen 81;\n\
+    root /usr/share/phppgadmin;\n\
+    index index.php index.html index.htm;\n\
+    server_name pgadmin;\n\
+    location / {\n\
+        try_files $uri $uri/ /index.php?$args;\n\
+    }\n\
+    location ~ \.php$ {\n\
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;\n\
+        fastcgi_pass unix:/run/php/php7.0-fpm.sock;\n\
+        fastcgi_index index.php;\n\
+        fastcgi_read_timeout 3600;\n\
+        include fastcgi_params;\n\
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;\n\
+    }\n\
+    location ~ /\.ht {\n\
+        deny all;\n\
+    }\n\
+}\n\
+server {\n\
+    listen 82;\n\
+    root /vagrant/web_api;\n\
+    index index.php index.html index.htm;\n\
+    server_name api;\n\
+    location / {\n\
+        try_files $uri $uri/ /index.php?$args;\n\
+    }\n\
+    location ~ \.php$ {\n\
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;\n\
+        fastcgi_pass unix:/run/php/php7.0-fpm.sock;\n\
+        fastcgi_index index.php;\n\
+        fastcgi_read_timeout 3600;\n\
+        include fastcgi_params;\n\
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;\n\
+    }\n\
+    location /image/ {\n\
+        alias /var/www/html/web/image/;\n\
+    }\n\
+    location ~ /\.ht {\n\
+        deny all;\n\
+    }\n\
+}' >> /etc/nginx/sites-available/default
+
+    sudo service nginx restart
+    sudo service php7.0-fpm restart
+
+    sudo curl -sS https://getcomposer.org/installer | php
+    sudo mv composer.phar /usr/local/bin/composer
+
+    composer global update fxp/composer-asset-plugin --no-plugins
+    composer global require "codeception/codeception=2.0.*"
+    composer global require "codeception/specify=*"
+    composer global require "codeception/verify=*"
+
+    cd /vagrant
+    # composer global require "fxp/composer-asset-plugin:^1.2.0"
+    # composer update
+
+    sudo ln -s /usr/bin/nodejs /usr/bin/node
+    # sudo npm install -g
+    # sudo npm install -g gulp-cli
+    # sudo npm install -g bower
+    # bower install --no-plugins
+    # gulp
+
+    sudo -u postgres psql -c "CREATE DATABASE db_reone;"
+    sudo -u postgres psql -c "CREATE USER db_user_reone WITH PASSWORD 'password';"
+    sudo -u postgres psql -c "GRANT ALL privileges ON DATABASE db_reone TO db_user_reone;"
+
+    # php ./yii migrate --migrationPath=@yii/rbac/migrations/ --interactive=false
+    # php ./yii migrate --migrationPath=@vendor/nhkey/yii2-activerecord-history/migrations --interactive=false
+    # php ./yii migrate --interactive=false
+
+    echo "installation finished"
+
+  SHELL
+end

@@ -1,0 +1,19 @@
+.sidebar-toggle {
+    float: left;
+    background: transparent none;
+    padding: 15px 15px;
+    /*font-family: fontAwesome;*/
+}
+
+.sidebar-toggle:before {
+    content: "\f0c9";
+}
+
+.main-sidebar .sidebar-menu .treeview-menu > li > a {
+    padding: 10px 5px 10px 30px;
+}
+
+.reone-app-body.sidebar-mini.sidebar-collapse .sidebar-menu>li:hover>a>span:not(.pull-right),
+.reone-app-body.sidebar-mini.sidebar-collapse .sidebar-menu>li:hover>.treeview-menu {
+    width: 280px;
+}

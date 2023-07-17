@@ -1,0 +1,100 @@
+.tabbed-table > table,
+.tabbed-table > .table-wrapper > table {
+    width: 100%;
+    border: 1px solid #ccd6dd;
+    border-collapse: collapse;
+}
+
+.tabbed-table table tr td {
+    border-bottom: 1px solid #ccd6dd;
+    border-left: 0;
+    border-right: 0;
+    background: #fafafa !important;
+    padding: 8px;
+    white-space: nowrap;
+    white-space: normal;
+}
+
+#servicesTable td {
+    padding: 5px;
+}
+
+.tabbed-table > table > tbody > tr.with-lower-row > td,
+.tabbed-table > .table-wrapper > table > tbody > tr.with-lower-row > td {
+    padding: 8px;
+    border-bottom: 0;
+    white-space: normal;
+}
+
+.tabbed-table>table>tbody>tr>td.box-cell, .tabbed-table>.table-wrapper>table>tbody>tr>td.box-cell {
+    background: #fafafa !important;
+    border-top: 0;
+}
+.tabbed-table .tabs {
+    padding-left: 10px;
+}
+.tabbed-table .tabs .tabs-tab {
+    display: block;
+    padding: 0 15px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    border: 1px solid #aadeff;
+    color: #0097e5;
+    text-decoration: none;
+    cursor: pointer;
+    float: left;
+    border-bottom: 1px solid #ccd6dd;
+    border-right: 0;
+    margin-bottom: -1px;
+}
+.tabbed-table .tabs .tabs-tab:first-child {
+    border-radius: 7px 0 0 0;
+}
+.tabbed-table .tabs .tabs-tab:hover {
+    background: #e9fbff;
+}
+.tabbed-table .tabs .tabs-tab.active {
+    border: 1px solid #ccd6dd;
+    color: #313140;
+    background: #fafafa;
+    border-bottom: 1px solid #fafafa;
+}
+.tabbed-table .tabs .tabs-tab:last-child {
+    border-right: 1px solid #aadeff;
+    border-radius: 0 7px 0 0;
+}
+.products-table {
+    margin-bottom: 10px;
+}
+.products-table input {
+    font-size: 12px !important;
+}
+.products-table .product-quantity input {
+    width: 60px;
+}
+.order-service-input {
+    display: inline-block !important;
+    width: 48px !important;
+}
+
+.order-service-input_price {
+    width: 100px !important;
+}
+
+.order-service-column_name {
+    width: 234px;
+}
+
+.css-remove-service {
+    float: right;
+}
+
+.simple_form .control-group textarea.order_comment_item {
+    font-size: 11px;
+    width: 100%;
+}
+
+.awesomplete {
+    width: 100%;
+}

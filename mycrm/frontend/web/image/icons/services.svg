@@ -1,0 +1,19 @@
+<svg width="17" height="18" viewBox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>Group 14 Copy</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(613 -112)">
+<g id="Group 14 Copy" opacity="0.5">
+<g id="Group 13">
+<g id="Rectangle 21">
+<use xlink:href="#path0_fill" transform="matrix(0.707107 -0.707107 0.707107 0.707107 -614.6 125.113)" fill="#FFFFFF"/>
+</g>
+<g id="Rectangle 21">
+<use xlink:href="#path0_fill" transform="matrix(-0.707107 0.707107 0.707107 0.707107 -600.585 111.095)" fill="#FFFFFF"/>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" fill-rule="evenodd" d="M 0 4C 0 1.79086 1.79086 0 4 0L 9.08009 0C 9.10517 0 9.12549 0.0203265 9.12549 0.0454005L 9.12549 7.9546C 9.12549 7.97967 9.10517 8 9.08009 8L 4 8C 1.79086 8 0 6.20914 0 4Z"/>
+</defs>
+</svg>

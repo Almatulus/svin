@@ -1,0 +1,28 @@
+.customers-table span {
+    padding: 0 0 0 17px;
+    display: block;
+}
+
+.customers-table span.gold {
+    background: url(../../image/ico-gold.gif) no-repeat 0 50%;
+}
+.customers-table span.silver {
+    background: url(../../image/ico-silver.gif) no-repeat 0 50%;
+}
+.customers-table span.gold {
+    background: url(../../image/ico-gold.gif) no-repeat 0 50%;
+}
+
+#customers-container {
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    opacity: 1;
+}
+
+#customers-container.loading {
+    opacity: 0.15;
+}
+
+.select2-dropdown, .datepicker {
+    z-index: 100001 !important;
+}

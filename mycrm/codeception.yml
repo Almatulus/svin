@@ -1,0 +1,79 @@
+actor: Tester
+#coverage:
+#    #c3_url: http://localhost:8080/index-test.php/
+#    enabled: true
+#    #remote: true
+#    #remote_config: '../tests/codeception.yml'
+#    white_list:
+#        include:
+#            - ./models/*
+#            - ./controllers/*
+#            - ./commands/*
+#            - ./mail/*
+#    blacklist:
+#        include:
+#            - ./assets/*
+#            - ./config/*
+#            - ./runtime/*
+#            - ./vendor/*
+#            - ./views/*
+#            - ./web/*
+#            - ./tests/*
+paths:
+    tests: tests
+    log: tests/_output
+    data: tests/_data
+    helpers: tests/_support
+settings:
+    bootstrap: _bootstrap.php
+    suite_class: \PHPUnit_Framework_TestSuite
+    memory_limit: 2048M
+    log: true
+    colors: true
+coverage:
+    enabled: true
+    include:
+        - ./*
+    exclude:
+        - ./api/config/*
+        - ./api/modules/v1/*
+        - ./api/runtime/*
+        - ./api/web/*
+        - ./autocomplete/*
+        - ./build/*
+        - ./common/bootstrap/*
+        - ./common/config/*
+        - ./common/mail/*
+        - ./common/messages/*
+        - ./console/config/*
+        - ./console/*
+        - ./core/helpers/*
+        - ./core/rbac/*
+        - ./core/repositories/*
+        - ./core/tests/*
+        - ./docker/*
+        - ./frontend/*
+        - ./node_modules/*
+        - ./static/*
+        - ./tests/*
+        - ./vendor/*
+        - ./.bowerrc
+        - ./Vagrantfile
+        - ./requirements.php
+        - ./.env*
+        - ./.git*
+        - ./.ht*
+        - ./*.md
+        - ./*.sql
+        - ./*.txt
+        - ./*.xml
+        - ./*.yml
+        - ./*.html
+        - ./*.json
+        - ./*.js
+        - ./*.lock
+        - ./yii*
+config:
+    # the entry script URL (with host info) for functional and acceptance tests
+    # PLEASE ADJUST IT TO THE ACTUAL ENTRY SCRIPT URL
+    test_entry_url: http://localst:86/index-test.php

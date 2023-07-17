@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="MyCRM" default="build">
+
+    <property name="pdepend" value="pdepend"/>
+    <property name="phpcpd"  value="phpcpd"/>
+    <property name="phpcs"   value="phpcs"/>
+    <property name="phpdox"  value="phpdox"/>
+    <property name="phploc"  value="phploc"/>
+    <property name="phpmd"   value="phpmd"/>
+    <property name="composer" value="composer"/>
+
+    <include file="${basedir}/build/codeception.xml" as="codeception" />
+
+    <target name="build"
+            depends="prepare,composer,codeception.run-tests"
+            description="Builds the project, updates composer and run codeception tests to check code"/>
+
+    <target name="analysis"
+            depends="build,lint,phploc,pdepend,phpmd,phpcs"
+            description="Builds the project and create the analysis of code" />
+
+    <!-- TODO -->
+    <target name="package" description="Prepares the project to deploy" />
+
+    <!-- TODO -->
+    <target name="deploy" description="Updates production application build of the project" />
+
+    <target name="clean"
+            unless="clean.done"
+            description="Cleanup build artifacts">
+        <delete dir="${basedir}/build/api"/>
+        <delete dir="${basedir}/build/coverage"/>
+        <delete dir="${basedir}/build/logs"/>
+        <delete dir="${basedir}/build/pdepend"/>
+        <delete dir="${basedir}/build/phpdox"/>
+        <property name="clean.done" value="true"/>
+    </target>
+
+    <target name="prepare"
+            unless="prepare.done"
+            depends="clean"
+            description="Prepare for build">
+        <mkdir dir="${basedir}/build/api"/>
+        <mkdir dir="${basedir}/build/coverage"/>
+        <mkdir dir="${basedir}/build/logs"/>
+        <mkdir dir="${basedir}/build/pdepend"/>
+        <mkdir dir="${basedir}/build/phpdox"/>
+        <property name="prepare.done" value="true"/>
+    </target>
+
+    <target name="composer" depends="composer.global" description="Installing composer dependencies">
+        <exec executable="${composer}" taskname="composer">
+            <arg value="install" />
+        </exec>
+    </target>
+
+    <target name="composer.global" description="Yii2 require global assets">
+        <exec executable="${composer}" taskname="composer.global">
+            <arg value="global" />
+            <arg value="require" />
+            <arg value="fxp/composer-asset-plugin:^1.2.0" />
+        </exec>
+    </target>
+
+    <target name="lint"
+            unless="lint.done"
+            description="Perform syntax check of sourcecode files">
+        <apply executable="php" taskname="lint">
+            <arg value="-l" />
+
+            <fileset dir="${basedir}/assets">
+                <include name="**/*.php" />
+                <modified />
+            </fileset>
+
+            <fileset dir="${basedir}/commands">
+                <include name="**/*.php" />
+                <modified />
+            </fileset>
+
+            <fileset dir="${basedir}/components">
+                <include name="**/*.php" />
+                <modified />
+            </fileset>
+
+            <fileset dir="${basedir}/config">
+                <include name="**/*.php" />
+                <modified />
+            </fileset>
+
+            <fileset dir="${basedir}/controllers">
+                <include name="**/*.php" />
+                <modified />
+            </fileset>
+
+            <fileset dir="${basedir}/helpers">
+                <include name="**/*.php" />
+                <modified />
+            </fileset>
+
+            <fileset dir="${basedir}/messages">
+                <include name="**/*.php" />
+                <modified />
+            </fileset>
+
+            <fileset dir="${basedir}/models">
+                <include name="**/*.php" />
+                <modified />
+            </fileset>
+
+            <fileset dir="${basedir}/migrations">
+                <include name="**/*.php" />
+                <modified />
+            </fileset>
+
+            <fileset dir="${basedir}/rbac">
+                <include name="**/*.php" />
+                <modified />
+            </fileset>
+
+            <fileset dir="${basedir}/modules">
+                <include name="**/*.php" />
+                <modified />
+            </fileset>
+
+            <fileset dir="${basedir}/themes">
+                <include name="**/*.php" />
+                <modified />
+            </fileset>
+
+            <fileset dir="${basedir}/tests">
+                <include name="**/*.php" />
+                <modified />
+            </fileset>
+
+            <fileset dir="${basedir}/views">
+                <include name="**/*.php" />
+                <modified />
+            </fileset>
+        </apply>
+
+        <property name="lint.done" value="true"/>
+    </target>
+
+    <target name="phploc"
+            unless="phploc.done"
+            depends="prepare"
+            description="Measure project size using PHPLOC and log result in CSV and XML format. Intended for usage within a continuous integration environment.">
+        <exec executable="${phploc}" taskname="phploc">
+            <arg value="--count-tests" />
+            <arg value="--log-csv" />
+            <arg path="${basedir}/build/logs/phploc.csv" />
+            <arg value="--log-xml" />
+            <arg path="${basedir}/build/logs/phploc.xml" />
+            <arg value="--exclude"/>
+            <arg value="${basedir}/vendor/"/>
+            <arg value="--exclude"/>
+            <arg value="${basedir}/runtime/"/>
+            <arg value="--exclude"/>
+            <arg value="${basedir}/node_modules/"/>
+            <arg value="--exclude"/>
+            <arg value="${basedir}/nodejs/"/>
+            <arg path="${basedir}" />
+        </exec>
+
+        <property name="phploc.done" value="true"/>
+    </target>
+
+    <target name="pdepend"
+            unless="pdepend.done"
+            depends="prepare"
+            description="Calculate software metrics using PHP_Depend and log result in XML format. Intended for usage within a continuous integration environment.">
+        <exec executable="${pdepend}" taskname="pdepend">
+            <arg value="--jdepend-xml=${basedir}/build/logs/jdepend.xml" />
+            <arg value="--jdepend-chart=${basedir}/build/pdepend/dependencies.svg" />
+            <arg value="--overview-pyramid=${basedir}/build/pdepend/overview-pyramid.svg" />
+            <arg value="--ignore=${basedir}/vendor,${basedir}/runtime,${basedir}/node_modules,${basedir}/nodejs"/>
+            <arg path="${basedir}" />
+        </exec>
+
+        <property name="pdepend.done" value="true"/>
+    </target>
+
+    <target name="phpcs"
+            unless="phpcs.done"
+            depends="prepare"
+            description="Find coding standard violations using PHP_CodeSniffer and log result in XML format. Intended for usage within a continuous integration environment.">
+        <exec executable="${phpcs}" output="/dev/null" taskname="phpcs">
+            <arg value="--report=checkstyle" />
+            <arg value="--report-file=${basedir}/build/logs/checkstyle.xml" />
+            <arg value="--standard=PSR2" />
+            <arg value="--extensions=php" />
+            <arg value="--ignore=${basedir}/vendor,${basedir}/runtime,${basedir}/node_modules,${basedir}/nodejs" />
+            <arg path="${basedir}" />
+        </exec>
+
+        <property name="phpcs.done" value="true"/>
+    </target>
+
+    <target name="phpcpd"
+            unless="phpcpd.done"
+            depends="prepare"
+            description="Find duplicate code using PHPCPD and log result in XML format. Intended for usage within a continuous integration environment.">
+        <exec executable="${phpcpd}" taskname="phpcpd">
+            <arg value="--log-pmd" />
+            <arg path="${basedir}/build/logs/pmd-cpd.xml" />
+            <arg value="--exclude"/>
+            <arg value="${basedir}/vendor/"/>
+            <arg value="--exclude"/>
+            <arg value="${basedir}/runtime/"/>
+            <arg value="--exclude"/>
+            <arg value="${basedir}/node_modules/"/>
+            <arg value="--exclude"/>
+            <arg value="${basedir}/nodejs/"/>
+            <arg path="${basedir}"/>
+        </exec>
+
+        <property name="phpcpd.done" value="true"/>
+    </target>
+
+    <target name="phpdox"
+            unless="phpdox.done"
+            depends="phploc,phpcs,phpmd"
+            description="Generate project documentation using phpDox">
+        <exec executable="${phpdox}" dir="${basedir}/build" taskname="phpdox"/>
+
+        <property name="phpdox.done" value="true"/>
+    </target>
+
+    <target name="phpmd"
+            unless="phpmd.done"
+            depends="prepare"
+            description="Perform project mess detection using PHPMD and log result in XML format. Intended for usage within a continuous integration environment.">
+        <exec executable="${phpmd}" taskname="phpmd">
+            <arg value="--exclude"/>
+            <arg value="${basedir}/vendor/"/>
+            <arg value="--exclude"/>
+            <arg value="${basedir}/runtime/"/>
+            <arg value="--exclude"/>
+            <arg value="${basedir}/node_modules/"/>
+            <arg value="--exclude"/>
+            <arg value="${basedir}/nodejs/"/>
+            <arg path="${basedir}" />
+            <arg value="xml" />
+            <arg path="${basedir}/build/phpmd.xml" />
+            <arg value="--reportfile" />
+            <arg path="${basedir}/build/logs/pmd.xml" />
+        </exec>
+
+        <property name="phpmd.done" value="true"/>
+    </target>
+</project>

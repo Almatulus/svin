@@ -1,0 +1,6692 @@
+/** SLICK **/
+
+.slick-slider {
+    position: relative;
+    display: block;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent
+}
+
+.slick-list {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0
+}
+
+.slick-list:focus {
+    outline: 0
+}
+
+.slick-list.dragging {
+    cursor: pointer;
+    cursor: hand
+}
+
+.slick-slider .slick-track, .slick-slider .slick-list {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0)
+}
+
+.slick-track {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block
+}
+
+.slick-track:before, .slick-track:after {
+    display: table;
+    content: ''
+}
+
+.slick-track:after {
+    clear: both
+}
+
+.slick-loading .slick-track {
+    visibility: hidden
+}
+
+.slick-slide {
+    display: none;
+    float: left;
+    height: 100%;
+    min-height: 1px
+}
+
+[dir='rtl'] .slick-slide {
+    float: right
+}
+
+.slick-slide img {
+    display: block
+}
+
+.slick-slide.slick-loading img {
+    display: none
+}
+
+.slick-slide.dragging img {
+    pointer-events: none
+}
+
+.slick-initialized .slick-slide {
+    display: block
+}
+
+.slick-loading .slick-slide {
+    visibility: hidden
+}
+
+.slick-vertical .slick-slide {
+    display: block;
+    height: auto;
+    border: 1px solid transparent
+}
+
+.slick-arrow.slick-hidden {
+    display: none
+}
+
+.slick-loading .slick-list {
+    background: #fff url(../../image/ajax-loader-ee7ed79371d6a288e40fad18ff68ffb0.gif) center center no-repeat
+}
+
+@font-face {
+    font-family: "slick";
+    src: url(//d2men6u3u0nact.cloudfront.net/assets/slick-286405e1dc27f66bd74ad7833b1e8741.eot);
+    src: url(//d2men6u3u0nact.cloudfront.net/assets/slick.eot?#iefix) format("embedded-opentype"), url(//d2men6u3u0nact.cloudfront.net/assets/slick-bc87c4887d39b30c60964c829dfa7acd.woff) format("woff"), url(//d2men6u3u0nact.cloudfront.net/assets/slick-af4f9041295ef79a9981f331fbd37df1.ttf) format("truetype"), url(//d2men6u3u0nact.cloudfront.net/assets/slick.svg#slick) format("svg");
+    font-weight: normal;
+    font-style: normal
+}
+
+.slick-prev, .slick-next {
+    position: absolute;
+    display: block;
+    height: 20px;
+    width: 20px;
+    line-height: 0;
+    font-size: 0;
+    cursor: pointer;
+    background: transparent;
+    color: transparent;
+    top: 50%;
+    margin-top: -10px;
+    padding: 0;
+    border: 0;
+    outline: 0
+}
+
+.slick-prev:hover, .slick-prev:focus, .slick-next:hover, .slick-next:focus {
+    outline: 0;
+    background: transparent;
+    color: transparent
+}
+
+.slick-prev:hover:before, .slick-prev:focus:before, .slick-next:hover:before, .slick-next:focus:before {
+    opacity: 1
+}
+
+.slick-prev.slick-disabled:before, .slick-next.slick-disabled:before {
+    opacity: .25
+}
+
+.slick-prev:before, .slick-next:before {
+    font-family: "slick";
+    font-size: 20px;
+    line-height: 1;
+    color: #fff;
+    opacity: .75;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+.slick-prev {
+    left: -25px
+}
+
+[dir="rtl"] .slick-prev {
+    left: auto;
+    right: -25px
+}
+
+.slick-prev:before {
+    content: "←"
+}
+
+[dir="rtl"] .slick-prev:before {
+    content: "→"
+}
+
+.slick-next {
+    right: -25px
+}
+
+[dir="rtl"] .slick-next {
+    left: -25px;
+    right: auto
+}
+
+.slick-next:before {
+    content: "→"
+}
+
+[dir="rtl"] .slick-next:before {
+    content: "←"
+}
+
+.slick-slider {
+    margin-bottom: 30px
+}
+
+.slick-dots {
+    position: absolute;
+    bottom: -45px;
+    list-style: none;
+    display: block;
+    text-align: center;
+    padding: 0;
+    width: 100%
+}
+
+.slick-dots li {
+    position: relative;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    margin: 0 5px;
+    padding: 0;
+    cursor: pointer
+}
+
+.slick-dots li button {
+    border: 0;
+    background: transparent;
+    display: block;
+    height: 20px;
+    width: 20px;
+    outline: 0;
+    line-height: 0;
+    font-size: 0;
+    color: transparent;
+    padding: 5px;
+    cursor: pointer
+}
+
+.slick-dots li button:hover, .slick-dots li button:focus {
+    outline: 0
+}
+
+.slick-dots li button:hover:before, .slick-dots li button:focus:before {
+    opacity: 1
+}
+
+.slick-dots li button:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "•";
+    width: 20px;
+    height: 20px;
+    font-family: "slick";
+    font-size: 6px;
+    line-height: 20px;
+    text-align: center;
+    color: #000;
+    opacity: .25;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+.slick-dots li.slick-active button:before {
+    color: #000;
+    opacity: .75
+}
+
+/** JQPLOT **/
+.jqplot-target {
+    position: relative;
+    color: #666;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 1em
+}
+
+.jqplot-axis {
+    font-size: .75em
+}
+
+.jqplot-xaxis {
+    margin-top: 10px
+}
+
+.jqplot-x2axis {
+    margin-bottom: 10px
+}
+
+.jqplot-yaxis {
+    margin-right: 10px
+}
+
+.jqplot-y2axis, .jqplot-y3axis, .jqplot-y4axis, .jqplot-y5axis, .jqplot-y6axis, .jqplot-y7axis, .jqplot-y8axis, .jqplot-y9axis, .jqplot-yMidAxis {
+    margin-left: 10px;
+    margin-right: 10px
+}
+
+.jqplot-axis-tick, .jqplot-xaxis-tick, .jqplot-yaxis-tick, .jqplot-x2axis-tick, .jqplot-y2axis-tick, .jqplot-y3axis-tick, .jqplot-y4axis-tick, .jqplot-y5axis-tick, .jqplot-y6axis-tick, .jqplot-y7axis-tick, .jqplot-y8axis-tick, .jqplot-y9axis-tick, .jqplot-yMidAxis-tick {
+    position: absolute;
+    white-space: pre
+}
+
+.jqplot-xaxis-tick {
+    top: 0;
+    left: 15px;
+    vertical-align: top
+}
+
+.jqplot-x2axis-tick {
+    bottom: 0;
+    left: 15px;
+    vertical-align: bottom
+}
+
+.jqplot-yaxis-tick {
+    right: 0;
+    top: 15px;
+    text-align: right
+}
+
+.jqplot-yaxis-tick.jqplot-breakTick {
+    right: -20px;
+    margin-right: 0;
+    padding: 1px 5px 1px 5px;
+    z-index: 2;
+    font-size: 1.5em
+}
+
+.jqplot-y2axis-tick, .jqplot-y3axis-tick, .jqplot-y4axis-tick, .jqplot-y5axis-tick, .jqplot-y6axis-tick, .jqplot-y7axis-tick, .jqplot-y8axis-tick, .jqplot-y9axis-tick {
+    left: 0;
+    top: 15px;
+    text-align: left
+}
+
+.jqplot-yMidAxis-tick {
+    text-align: center;
+    white-space: nowrap
+}
+
+.jqplot-xaxis-label {
+    margin-top: 10px;
+    font-size: 11pt;
+    position: absolute
+}
+
+.jqplot-x2axis-label {
+    margin-bottom: 10px;
+    font-size: 11pt;
+    position: absolute
+}
+
+.jqplot-yaxis-label {
+    margin-right: 10px;
+    font-size: 11pt;
+    position: absolute
+}
+
+.jqplot-yMidAxis-label {
+    font-size: 11pt;
+    position: absolute
+}
+
+.jqplot-y2axis-label, .jqplot-y3axis-label, .jqplot-y4axis-label, .jqplot-y5axis-label, .jqplot-y6axis-label, .jqplot-y7axis-label, .jqplot-y8axis-label, .jqplot-y9axis-label {
+    font-size: 11pt;
+    margin-left: 10px;
+    position: absolute
+}
+
+.jqplot-meterGauge-tick {
+    font-size: .75em;
+    color: #999
+}
+
+.jqplot-meterGauge-label {
+    font-size: 1em;
+    color: #999
+}
+
+table.jqplot-table-legend {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    margin-left: 12px;
+    margin-right: 12px
+}
+
+table.jqplot-table-legend, table.jqplot-cursor-legend {
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 1px solid #ccc;
+    position: absolute;
+    font-size: .75em
+}
+
+td.jqplot-table-legend {
+    vertical-align: middle
+}
+
+td.jqplot-seriesToggle:hover, td.jqplot-seriesToggle:active {
+    cursor: pointer
+}
+
+.jqplot-table-legend .jqplot-series-hidden {
+    text-decoration: line-through
+}
+
+div.jqplot-table-legend-swatch-outline {
+    border: 1px solid #ccc;
+    padding: 1px
+}
+
+div.jqplot-table-legend-swatch {
+    width: 0;
+    height: 0;
+    border-top-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 6px;
+    border-right-width: 6px;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-right-style: solid
+}
+
+.jqplot-title {
+    top: 0;
+    left: 0;
+    padding-bottom: .5em;
+    font-size: 1.2em
+}
+
+table.jqplot-cursor-tooltip {
+    border: 1px solid #ccc;
+    font-size: .75em
+}
+
+.jqplot-cursor-tooltip {
+    border: 1px solid #ccc;
+    font-size: .75em;
+    white-space: nowrap;
+    background: rgba(208, 208, 208, 0.5);
+    padding: 1px
+}
+
+.jqplot-highlighter-tooltip, .jqplot-canvasOverlay-tooltip {
+    border: 1px solid #ccc;
+    font-size: .75em;
+    white-space: nowrap;
+    background: rgba(208, 208, 208, 0.5);
+    padding: 1px
+}
+
+.jqplot-point-label {
+    font-size: .75em;
+    z-index: 2
+}
+
+td.jqplot-cursor-legend-swatch {
+    vertical-align: middle;
+    text-align: center
+}
+
+div.jqplot-cursor-legend-swatch {
+    width: 1.2em;
+    height: .7em
+}
+
+.jqplot-error {
+    text-align: center
+}
+
+.jqplot-error-message {
+    position: relative;
+    top: 46%;
+    display: inline-block
+}
+
+div.jqplot-bubble-label {
+    font-size: .8em;
+    padding-left: 2px;
+    padding-right: 2px;
+    color: #333
+}
+
+div.jqplot-bubble-label.jqplot-bubble-label-highlight {
+    background: rgba(229, 229, 229, 0.7)
+}
+
+div.jqplot-noData-container {
+    text-align: center;
+    background-color: rgba(244, 244, 244, 0.3)
+}
+
+/** Reminder **/
+.reminder .field, .notification .field, .customer_magnet .field, .customer_note .field {
+    margin-bottom: 1em
+}
+
+.reminder label, .notification label, .customer_magnet label, .customer_note label {
+    width: 200px;
+    display: inline-block;
+    vertical-align: top;
+    font-weight: normal
+}
+
+.reminder .value, .notification .value, .customer_magnet .value, .customer_note .value {
+    display: inline-block
+}
+
+.reminder .form_actions, .notification .form_actions, .customer_magnet .form_actions, .customer_note .form_actions {
+    border-top: 1px solid #dedcd9;
+    padding-top: 10px;
+    margin-top: 20px
+}
+
+.reminder .form_actions .cancel_action, .notification .form_actions .cancel_action, .customer_magnet .form_actions .cancel_action, .customer_note .form_actions .cancel_action {
+    float: right
+}
+
+.reminder .message_info, .notification .message_info, .customer_magnet .message_info, .customer_note .message_info {
+    margin-left: 17px
+}
+
+.reminder .message_info .message_sent, .notification .message_info .message_sent, .customer_magnet .message_info .message_sent, .customer_note .message_info .message_sent {
+    display: inline;
+    margin-left: 22px;
+    font-family: "Lato", Verdana, sans-serif;
+    font-weight: 300;
+    font-size: 20px
+}
+
+.reminder .message_info .value, .notification .message_info .value, .customer_magnet .message_info .value, .customer_note .message_info .value {
+    margin: 10px 0 0 30px;
+    border: 1px solid silver;
+    background: #f8f8f8;
+    padding: 5px;
+    min-width: 500px;
+    width: 50%;
+    display: block
+}
+
+.reminder .visit_reminder_progress, .notification .visit_reminder_progress, .customer_magnet .visit_reminder_progress, .customer_note .visit_reminder_progress {
+    display: inline
+}
+
+.reminder .visit_reminder_progress .message_sent, .notification .visit_reminder_progress .message_sent, .customer_magnet .visit_reminder_progress .message_sent, .customer_note .visit_reminder_progress .message_sent {
+    display: inline;
+    margin-left: 20px;
+    font-size: 1.2em
+}
+
+.reminder .message_info .sent_after_time, .reminder .visit_reminder_progress .sent_after_time, .notification .message_info .sent_after_time, .notification .visit_reminder_progress .sent_after_time, .customer_magnet .message_info .sent_after_time, .customer_magnet .visit_reminder_progress .sent_after_time, .customer_note .message_info .sent_after_time, .customer_note .visit_reminder_progress .sent_after_time {
+    font-weight: bold;
+    display: inline;
+    margin-left: 20px
+}
+
+.reminder .info_tip a, .notification .info_tip a, .customer_magnet .info_tip a, .customer_note .info_tip a {
+    margin-bottom: 0
+}
+
+.reminder.marketing_form label {
+    width: 150px;
+    font-weight: normal
+}
+
+.reminders td p {
+    margin: 0
+}
+
+.reminders .reminder_name {
+    font-weight: bold
+}
+
+.reminders .what_is_it, .reminders .why_worth_it {
+    font-size: 1.3em;
+    margin: 10px 0
+}
+
+.reminders .actions {
+    margin-top: 10px
+}
+
+/** Magnet state **/
+.magnet_state {
+    color: #747474;
+    margin: 20px 0 10px 0
+}
+
+.magnet_state .tag {
+    font-weight: normal
+}
+
+.magnet_state .value {
+    font-weight: bold
+}
+
+.magnet_state li {
+    list-style-type: none;
+    display: inline
+}
+
+.magnet_state li label {
+    margin-bottom: 20px
+}
+
+.magnet_state label {
+    font-weight: normal;
+    display: block
+}
+
+.magnet_state .with_status {
+    float: left
+}
+
+.magnet_state .controls {
+    display: inline !important
+}
+
+.magnet_state .controls label {
+    width: 65% !important
+}
+
+.magnet_state .control-group.boolean input.boolean {
+    left: 22px !important
+}
+
+/** Campaign progress **/
+#campaign_progress {
+    width: 100%;
+    padding-top: 30px
+}
+
+#campaign_progress .message_settings {
+    margin-top: 30px;
+    clear: both
+}
+
+#campaign_progress .message_settings.reminder_inactive .reminder_messages, #campaign_progress .message_settings.reminder_inactive .messages_preview, #campaign_progress .message_settings.reminder_inactive .reminder_params .value {
+    opacity: .6
+}
+
+#campaign_progress .message_settings.campaign_inactive {
+    opacity: .6
+}
+
+#campaign_progress .automatic_message_inactive .services_list {
+    opacity: .6
+}
+
+#campaign_progress .edit_campaign {
+    margin-left: 10px
+}
+
+#campaign_progress .edit_campaign a {
+    text-decoration: none
+}
+
+#campaign_progress .more_options {
+    margin-left: 10px
+}
+
+#campaign_progress .message_body .progress_block {
+    float: left
+}
+
+#campaign_progress .message_body .dotted_line {
+    height: 50px;
+    border-left: 1px dotted #8a8684;
+    margin-left: 17px
+}
+
+#campaign_progress .description {
+    margin: 0 0 20px 150px;
+    display: none;
+    width: 60%
+}
+
+#campaign_progress .description.narrow {
+    width: 50%
+}
+
+#campaign_progress .reminder_services {
+    margin: 30px 0 0 125px
+}
+
+#campaign_progress .reminder_services label {
+    margin-bottom: 0
+}
+
+#campaign_progress .reminder_services .value {
+    padding: 0
+}
+
+#campaign_progress .reminder_services li {
+    list-style-type: none
+}
+
+#campaign_progress .reminder_services .services_list {
+    display: inline-block;
+    width: 300px
+}
+
+#campaign_progress .show_desc {
+    color: #05c6a4;
+    border-color: #05c6a4;
+    float: right
+}
+
+#campaign_progress .visit_reminder_btns {
+    margin-top: 30px
+}
+
+#campaign_progress .visit_reminder_btns .reminder_desc .description {
+    clear: right;
+    margin-left: 155px
+}
+
+#campaign_progress .visit_reminder_btns .show_desc {
+    margin-top: 0
+}
+
+#campaign_progress .visit_reminder_btns a:hover {
+    text-decoration: none
+}
+
+#campaign_progress .visit_reminder_btns .what_is_it {
+    margin-top: 0
+}
+
+#campaign_progress .message_before .message_info {
+    border-left: 1px dotted #8a8684
+}
+
+#campaign_progress .magnet_descriptions, #campaign_progress .notification_descriptions, #campaign_progress .customer_note_descriptions, #campaign_progress .reminder_descriptions {
+    float: left;
+    margin-right: 50px;
+    width: 100px;
+    position: relative
+}
+
+#campaign_progress .magnet_descriptions .message_time .time, #campaign_progress .notification_descriptions .message_time .time, #campaign_progress .customer_note_descriptions .message_time .time, #campaign_progress .reminder_descriptions .message_time .time {
+    font-size: 18px
+}
+
+#campaign_progress .magnet_descriptions .desc_1, #campaign_progress .magnet_descriptions .desc_2, #campaign_progress .magnet_descriptions .desc_3, #campaign_progress .notification_descriptions .desc_1, #campaign_progress .notification_descriptions .desc_2, #campaign_progress .notification_descriptions .desc_3, #campaign_progress .customer_note_descriptions .desc_1, #campaign_progress .customer_note_descriptions .desc_2, #campaign_progress .customer_note_descriptions .desc_3, #campaign_progress .reminder_descriptions .desc_1, #campaign_progress .reminder_descriptions .desc_2, #campaign_progress .reminder_descriptions .desc_3 {
+    position: absolute;
+    right: 0;
+    text-align: right
+}
+
+#campaign_progress .magnet_descriptions .after_action, #campaign_progress .notification_descriptions .after_action, #campaign_progress .customer_note_descriptions .after_action, #campaign_progress .reminder_descriptions .after_action {
+    position: absolute;
+    right: 0;
+    text-align: right;
+    font-size: 13px
+}
+
+#campaign_progress .magnet_descriptions .after_action .time, #campaign_progress .notification_descriptions .after_action .time, #campaign_progress .customer_note_descriptions .after_action .time, #campaign_progress .reminder_descriptions .after_action .time {
+    font-size: 18px
+}
+
+#campaign_progress .magnet_descriptions .after_visit, #campaign_progress .notification_descriptions .after_visit, #campaign_progress .customer_note_descriptions .after_visit, #campaign_progress .reminder_descriptions .after_visit {
+    font-size: 13px;
+    color: #777
+}
+
+#campaign_progress .magnet_messages, #campaign_progress .notification_messages, #campaign_progress .customer_note_messages, #campaign_progress .reminder_messages {
+    border-left: 4px solid #e6e6e6;
+    margin-left: 130px
+}
+
+#campaign_progress .reminder_messages {
+    overflow: hidden
+}
+
+#campaign_progress .reminder_messages.visit_reminder_msgs {
+    overflow: visible
+}
+
+#campaign_progress .reminder_messages .end_point {
+    margin: 0 0 -20px 20px;
+    color: #01adf2;
+    font-size: 15px
+}
+
+#campaign_progress .value {
+    padding: 10px
+}
+
+#campaign_progress .platform {
+    text-align: left;
+    display: inline;
+    font-weight: 600
+}
+
+#campaign_progress .campaign_start {
+    text-align: right
+}
+
+#campaign_progress .campaign_end {
+    font-weight: 300;
+    position: absolute;
+    right: 0;
+    vertical-align: bottom
+}
+
+#campaign_progress .campaign_start_icon {
+    margin-left: -30px
+}
+
+#campaign_progress .campaign_end_icon {
+    margin-left: 123px;
+    margin-top: -40px
+}
+
+#campaign_progress .message_body {
+    margin-left: 17px
+}
+
+#campaign_progress .message_body .value {
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+    background: #f9f9f9;
+    width: 100%;
+    margin: 3px 0 0 0;
+    text-overflow: ellipsis;
+    overflow: hidden
+}
+
+#campaign_progress .message_body .edit_message a:hover {
+    text-decoration: none
+}
+
+#campaign_progress .message_body.preferred_platform .preferred_label {
+    color: #54a2ff
+}
+
+#campaign_progress .message_body.preferred_platform .value {
+    border-color: #b9daff;
+    background: #eff8fe
+}
+
+#campaign_progress .message_body.sms_platform {
+    width: 55%
+}
+
+#campaign_progress .message_body.email_platform {
+    width: 70%
+}
+
+#campaign_progress .message_body.email_platform .email_subject {
+    margin-bottom: 10px
+}
+
+#campaign_progress .message_body.email_platform .message_title {
+    font-weight: 600;
+    display: inline
+}
+
+#campaign_progress .message_body.email_platform .message_type {
+    display: inline;
+    font-weight: 600;
+    color: #868695
+}
+
+#campaign_progress .customer_magnet .magnet_state {
+    float: left
+}
+
+#campaign_progress .customer_magnet .no_contact {
+    margin: 5px 0 3px 10px
+}
+
+#campaign_progress .customer_magnet .no_next_visit {
+    margin-left: 20px;
+    display: inline;
+    font-weight: bold;
+    font-size: .9em
+}
+
+#campaign_progress .customer_magnet .after_visit {
+    font-size: 12px
+}
+
+#campaign_progress .customer_magnet .time_end {
+    margin: 3px 0 0 10px
+}
+
+#campaign_progress .customer_magnet .campaign_end_icon {
+    margin-top: -15px
+}
+
+#campaign_progress .customer_magnet .message_body .value {
+    border: 0;
+    background: 0;
+    padding-left: 0
+}
+
+#campaign_progress .customer_magnet .field {
+    margin: 0 0 0 10px;
+    margin-bottom: 20px
+}
+
+#campaign_progress .customer_magnet .ui-tabs-nav {
+    border-bottom: 0
+}
+
+#campaign_progress .customer_magnet .line {
+    border-left: 1px dotted #8a8684;
+    min-height: 20px;
+    margin-left: 17px
+}
+
+#campaign_progress .customer_magnet .messages_tabs li {
+    padding: 0 10px;
+    background: #f9f9f9
+}
+
+#campaign_progress .customer_magnet .messages_tabs li.ui-tabs-active {
+    border-bottom: 1px solid #f9f9f9 !important
+}
+
+#campaign_progress .customer_magnet .messages_tabs li.preferred_platform {
+    background: #eff8fe
+}
+
+#campaign_progress .customer_magnet .messages_tabs li.preferred_platform.ui-tabs-active {
+    border-bottom: 1px solid #eff8fe !important
+}
+
+#campaign_progress .customer_magnet .messages_tabs li a {
+    font-weight: 600;
+    height: 30px;
+    color: #333;
+    line-height: 30px;
+    padding: 0 5px !important
+}
+
+#campaign_progress .customer_magnet .messages_tabs li .info_tip2 {
+    line-height: 30px
+}
+
+#campaign_progress .customer_magnet .messages_tabs li .info_tip2 .tooltip-inner {
+    text-align: left
+}
+
+#campaign_progress .customer_magnet .messages_tabs li:hover a {
+    background: 0;
+    color: #333
+}
+
+#campaign_progress .customer_magnet .messages_tabs .message_tab {
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+    background: #f9f9f9;
+    width: 55%
+}
+
+#campaign_progress .customer_magnet .messages_tabs .message_tab.email_platform {
+    width: 75%
+}
+
+#campaign_progress .customer_magnet .messages_tabs .message_tab.preferred_platform {
+    background: #eff8fe;
+    border-color: #b9daff
+}
+
+#campaign_progress .customer_magnet .messages_tabs .message_tab .sms_platform, #campaign_progress .customer_magnet .messages_tabs .message_tab .email_platform {
+    width: auto
+}
+
+#campaign_progress .customer_magnet .magnet_messages {
+    overflow: visible;
+    padding-bottom: 5px
+}
+
+#campaign_progress .customer_magnet .magnet_messages label {
+    font-family: "Lato", Verdana, sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    width: 100%;
+    display: inline;
+    margin-left: 20px;
+    vertical-align: top
+}
+
+#campaign_progress .customer_magnet .magnet_messages label .info_tip {
+    color: #000;
+    font-family: "Open Sans"
+}
+
+#campaign_progress .customer_magnet .magnet_messages .field {
+    margin-left: 15px
+}
+
+#campaign_progress .customer_magnet .magnet_messages .message_inactive {
+    opacity: .4
+}
+
+#campaign_progress .customer_magnet .magnet_messages .magnet_desc {
+    color: #000;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: "Open Sans"
+}
+
+#campaign_progress .magnet_form .message_body {
+    padding-bottom: 20px
+}
+
+#campaign_progress .magnet_form .message_body .value {
+    background: 0;
+    border: 0;
+    margin: 0 0 0 20px;
+    padding-bottom: 0
+}
+
+#campaign_progress .magnet_form .character_counter {
+    display: inline-block
+}
+
+#campaign_progress .magnet_form li {
+    list-style-type: none
+}
+
+#campaign_progress .magnet_state_set {
+    margin: 20px 0 0 0
+}
+
+#campaign_progress #vertical_tabs .message_body {
+    border: 1px solid #bebebe;
+    margin: 11px 0 20px -21px;
+    z-index: -1;
+    padding: 10px;
+    min-height: 210px
+}
+
+#campaign_progress .marketing_progress {
+    float: left;
+    width: 30px;
+    background: 0;
+    border: 0;
+    margin: 0 10px 0 10px
+}
+
+#campaign_progress .no_contact {
+    font-weight: bold;
+    margin: 20px 0 20px 20px
+}
+
+#campaign_progress .no_contact .icon, #campaign_progress .no_contact .navbar .navbar-right .omnibox-wrapper:before, .navbar .navbar-right #campaign_progress .no_contact .omnibox-wrapper:before, #campaign_progress .no_contact .dashboard .change_box .change_value.increase strong:after, .dashboard .change_box .change_value.increase #campaign_progress .no_contact strong:after, #campaign_progress .no_contact .dashboard .change_box .change_value.decrease strong:after, .dashboard .change_box .change_value.decrease #campaign_progress .no_contact strong:after {
+    margin-right: 20px
+}
+
+/** Access restrictions **/
+.restrictions_nav .nav_element .icon_box {
+    width: 32px
+}
+
+.access_restriction .restriction_title {
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 20px;
+    line-height: 25px;
+    display: inline-block
+}
+
+.access_restriction .icon_box {
+    line-height: 25px;
+    vertical-align: top
+}
+
+.access_restriction .ips_whitelist_title, .access_restriction .devices_list_title {
+    font-size: 18px;
+    margin: 20px 0
+}
+
+.access_restriction .authorize_current_device {
+    display: inline-block;
+    margin-bottom: 20px;
+    margin-right: 15px
+}
+
+.access_restriction .authorize_current_device a {
+    font-weight: 600
+}
+
+.access_restriction .no_role_chosen input[type="checkbox"] {
+    outline: 1px solid red
+}
+
+.access_restriction .restriction_enabled {
+    display: inline;
+    font-size: 17px;
+    margin-left: 5px
+}
+
+.access_restriction .restriction_desc {
+    margin-top: 20px
+}
+
+.access_restriction .restriction_desc .authorization_ways {
+    color: #3795de
+}
+
+.access_restriction .finalize_device_rest {
+    display: inline-block;
+    font-weight: 600
+}
+
+.access_restriction .device_not_authorized {
+    margin: 20px 0 10px 0
+}
+
+.access_restriction .authorization_email select {
+    width: 300px
+}
+
+.access_restriction .authorization_manager {
+    margin-bottom: 5px;
+    display: inline-block
+}
+
+.access_restriction .roles_authorization {
+    width: 450px;
+    margin-top: 30px
+}
+
+.access_restriction .roles_authorization .role_name {
+    display: inline
+}
+
+.access_restriction .roles_authorization tr:hover td {
+    background: 0
+}
+
+.access_restriction .roles_authorization .role input[type="checkbox"] {
+    vertical-align: bottom;
+    margin-bottom: 1px
+}
+
+.access_restriction .roles_authorization tr.selected td {
+    background: 0
+}
+
+.access_restriction .alert-danger {
+    margin-top: 10px;
+    width: 75%
+}
+
+.access_restriction .device_authorization {
+    width: 550px
+}
+
+.access_restriction .device_authorization tr:hover td, .access_restriction .device_authorization tr.selected td {
+    background: 0
+}
+
+.access_restriction .status select {
+    width: 185px
+}
+
+.access_restriction .schedule-form-row td {
+    width: 650px
+}
+
+.access_restriction .schedule-form-row td .calendar-weekday-col {
+    width: 14%;
+    padding-left: 5px
+}
+
+.access_restriction .schedule-form-row td .calendar-form-col {
+    height: 45px;
+    width: 80%
+}
+
+.access_restriction .schedule-form-row td .calendar-form-col .column.column-valid-times select {
+    width: 70px
+}
+
+.access_restriction .schedule-form-row td .calendar-form-col .column-not_available {
+    margin-left: 25px;
+    color: #d5580e;
+    font-weight: 600
+}
+
+.access_restriction .schedule-form-row td .calendar-form-col .column-open_hours_type {
+    margin-left: 20px;
+    width: 145px
+}
+
+.access_restriction .authorized_ip {
+    padding: 2px 5px;
+    border: 1px solid #d3d3d3;
+    border-radius: 2px;
+    font-size: 16px;
+    text-align: center;
+    width: 140px;
+    display: inline-block
+}
+
+.access_restriction .delete_ip {
+    vertical-align: bottom
+}
+
+.access_restriction .ip_row {
+    margin-bottom: 5px
+}
+
+.access_restriction #ip_form {
+    margin-top: 15px
+}
+
+.access_restriction #ip_form #address {
+    width: 140px
+}
+
+.access_restriction #ip_form .icon, .access_restriction #ip_form .navbar .navbar-right .omnibox-wrapper:before, .navbar .navbar-right .access_restriction #ip_form .omnibox-wrapper:before, .access_restriction #ip_form .dashboard .change_box .change_value.increase strong:after, .dashboard .change_box .change_value.increase .access_restriction #ip_form strong:after, .access_restriction #ip_form .dashboard .change_box .change_value.decrease strong:after, .dashboard .change_box .change_value.decrease .access_restriction #ip_form strong:after {
+    display: none
+}
+
+.access_restriction .description {
+    max-width: 550px
+}
+
+.access_restriction .form-actions {
+    margin-top: 20px
+}
+
+.access_restriction .status {
+    margin-top: 50px
+}
+
+/** MARKETING **/
+#physical_marketing .bootstrap-dialog-message {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-top: 5px
+}
+
+#physical_marketing .bootstrap-dialog-message span.variable {
+    background: 0
+}
+
+#physical_marketing .bootstrap-dialog-message span.variable:hover {
+    background: #d9f9ff;
+    border: 1px solid #00b8d5;
+    color: #007eaa;
+    padding: 1px 3px;
+    border-radius: 3px
+}
+
+.marketing .actions {
+    float: right
+}
+
+.marketing .actions .clients_list_btn a {
+    text-decoration: none
+}
+
+.marketing .reminder_actions {
+    margin-bottom: 30px
+}
+
+.marketing .reminder_actions .dropdown-menu {
+    min-width: 170px
+}
+
+.marketing .ui-tabs-nav li.ui-state-focus a {
+    color: #1c94c4
+}
+
+.marketing .all_sent_messages {
+    margin: 10px 0;
+    font-weight: bold
+}
+
+.marketing .show_desc:hover {
+    background: #e9fffb
+}
+
+.marketing .clients_list_table a {
+    color: #3795de
+}
+
+.marketing .clients_list_table a:hover, .marketing .clients_list_table a:focus {
+    color: #2a6496
+}
+
+.marketing span.variable {
+    background: #d9f9ff;
+    border: 1px solid #00b8d5;
+    color: #007eaa;
+    padding: 1px 3px;
+    border-radius: 3px;
+    white-space: nowrap
+}
+
+.marketing .magnet_btn_wrapper {
+    display: inline-block
+}
+
+.marketing .changes_dates {
+    color: #a8a4b9;
+    font-size: 13px;
+    clear: both;
+    float: right;
+    margin-top: 15px;
+    text-align: right
+}
+
+.marketing a.disabled_magnet {
+    pointer-events: none
+}
+
+.marketing .date_range_label {
+    text-align: right;
+    margin: 20px 0 5px 0
+}
+
+.marketing .marketing_calendar {
+    margin-top: 0 !important
+}
+
+.marketing .marketing_calendar .recovered_amount {
+    font-weight: 600
+}
+
+.marketing .marketing_calendar .all_recovered_clients_count, .marketing .marketing_calendar .clients_with_messages_count {
+    color: #5f5f5f;
+    font-weight: 600;
+    display: inline
+}
+
+.marketing .marketing_calendar .unit, .marketing .marketing_calendar .currency {
+    display: inline;
+    font-size: 20px;
+    margin-left: -5px !important
+}
+
+.marketing #onboarding_tutorial_alert .campaign_icon {
+    margin: 0 6px 4px 0;
+    width: 22px
+}
+
+.marketing #onboarding_tutorial_alert .onboarding_tasks {
+    padding-left: 0;
+    margin-top: 15px;
+    max-width: 450px
+}
+
+.marketing #onboarding_tutorial_alert .onboarding_tasks li {
+    padding: 2px 0;
+    border-bottom: 0
+}
+
+.marketing #onboarding_tutorial_alert .onboarding_tasks li a {
+    font-size: 13px
+}
+
+.marketing #onboarding_tutorial_alert .close {
+    left: 10px
+}
+
+.marketing #onboarding_tutorial_alert .onboarding-alert-content {
+    margin-left: 6px;
+    margin-top: 0
+}
+
+.marketing .alert {
+    margin-bottom: 15px;
+    padding: 10px 15px 0
+}
+
+.marketing .stats_boxes {
+    margin: 40px 0;
+    border: 1px solid #d0d0d0;
+    border-radius: 5px
+}
+
+.marketing .stats_boxes .stats_box {
+    margin: 10px 0;
+    font-size: 58px;
+    min-height: 145px;
+    padding-top: 0;
+    position: static
+}
+
+.marketing .stats_boxes .stats_box .box_label {
+    font-size: 13px;
+    font-family: "Open Sans", Verdana, sans-serif;
+    color: #595959;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    width: 200px
+}
+
+.marketing .stats_boxes .stats_box.money {
+    border-right: 1px solid #d0d0d0
+}
+
+.marketing .stats_boxes .stats_box.money .recovered {
+    font-family: "Lato", Verdana, sans-serif;
+    color: #00bff8
+}
+
+.marketing .stats_boxes .stats_box.money .recovered .recovered_amount {
+    font-weight: 600;
+    display: inline
+}
+
+.marketing .stats_boxes .stats_box.money .recovered .currency {
+    display: inline;
+    font-size: 20px;
+    margin-left: -10px
+}
+
+.marketing .stats_boxes .stats_box .all_recovered_clients, .marketing .stats_boxes .stats_box .clients_with_messages {
+    font-weight: 600
+}
+
+.marketing .stats_boxes .stats_box.recovered {
+    border-right: 1px solid #d0d0d0;
+    font-family: "Lato", Verdana, sans-serif
+}
+
+.marketing .stats_boxes .stats_box.recovered .box_label {
+    text-align: center
+}
+
+.marketing .stats_boxes .stats_box.clients_with_messages {
+    font-family: "Lato", Verdana, sans-serif
+}
+
+.marketing .more_stats {
+    text-align: right
+}
+
+.marketing .mark_stats td {
+    height: 140px
+}
+
+.marketing .mark_stats td:hover, .marketing .mark_stats tr.selected td {
+    background: 0
+}
+
+.marketing .mark_stats th {
+    font-size: 12px;
+    font-weight: bold
+}
+
+.marketing .mark_stats .tooltip-inner {
+    width: 300px
+}
+
+.marketing .mark_stats .icon, .marketing .mark_stats .navbar .navbar-right .omnibox-wrapper:before, .navbar .navbar-right .marketing .mark_stats .omnibox-wrapper:before, .marketing .mark_stats .dashboard .change_box .change_value.increase strong:after, .dashboard .change_box .change_value.increase .marketing .mark_stats strong:after, .marketing .mark_stats .dashboard .change_box .change_value.decrease strong:after, .dashboard .change_box .change_value.decrease .marketing .mark_stats strong:after {
+    width: 25px
+}
+
+.marketing .mark_stats .campaign {
+    margin: 5px 0;
+    color: #3795de;
+    font-weight: 600;
+    font-size: 13px
+}
+
+.marketing #tabs {
+    margin-top: 25px
+}
+
+.marketing .ui-tabs .ui-tabs-nav {
+    padding-left: 10px
+}
+
+.marketing .effectiveness_in_time {
+    margin-top: 35px
+}
+
+.marketing .info_tip2 {
+    display: inline
+}
+
+.marketing .info_tip2 .tooltip-inner {
+    text-align: left;
+    font-weight: normal
+}
+
+.marketing .not_available {
+    width: 155px;
+    float: right;
+    text-align: center;
+    color: grey;
+    margin-top: 5px
+}
+
+.marketing #campaign_progress.visit_reminder .reminder_messages {
+    margin-left: 0;
+    border-left: 0
+}
+
+.marketing #campaign_progress.visit_reminder .show_desc {
+    float: left;
+    margin-left: 17px
+}
+
+.marketing #campaign_progress.visit_reminder .reminder_desc .description {
+    margin-left: 17px
+}
+
+.marketing #campaign_progress.visit_reminder .message_body {
+    margin-top: 20px
+}
+
+.marketing .message_preference {
+    font-weight: bold;
+    display: inline
+}
+
+.marketing .box {
+    width: 70%;
+    min-width: 450px;
+    margin: 10px;
+    padding: 10px;
+    display: block;
+    padding: 15px;
+    position: relative;
+    font-size: 11px
+}
+
+.marketing .box .type_title {
+    display: inline
+}
+
+.marketing .box .type_title a {
+    font-size: 13px;
+    color: #27a9e1
+}
+
+.marketing .box .active_info {
+    float: right;
+    display: inline
+}
+
+.marketing .box .box_image {
+    float: left;
+    margin: 0 10px 0 8px
+}
+
+.marketing .box_series {
+    clear: both
+}
+
+.marketing .no_recipients {
+    font-size: 14px;
+    margin-top: 20px
+}
+
+.marketing .magnet_messages .value {
+    padding: 10px
+}
+
+.marketing .reminders_table {
+    margin-top: 50px
+}
+
+.marketing .simple_form .automatic_message_name {
+    width: 350px
+}
+
+.marketing .new_automatic_message {
+    font-weight: 600
+}
+
+.marketing .automatic_messages_table tr {
+    padding-bottom: 10px;
+    cursor: pointer
+}
+
+.marketing .automatic_messages_table tr.selected td {
+    background: 0
+}
+
+.marketing .automatic_messages_table .services {
+    margin-top: 5px
+}
+
+.marketing .automatic_messages_table .reminder_name {
+    color: #3794e3;
+    font-size: 18px;
+    font-weight: normal
+}
+
+.marketing .automatic_messages_table .services_label {
+    display: inline;
+    color: #89889c;
+    margin-right: 5px
+}
+
+.marketing .automatic_messages_table .services_list {
+    display: inline;
+    font-weight: 600
+}
+
+.marketing .automatic_messages_table .time_after {
+    margin-top: 5px;
+    color: #777
+}
+
+.marketing .marketing_form li {
+    margin-top: 15px;
+    padding-bottom: 0;
+    color: #747474;
+    list-style-type: none
+}
+
+.marketing .marketing_form .info_tip2 {
+    float: right;
+    margin-left: 5px
+}
+
+.marketing .marketing_form .info_tip2 .tooltip-inner {
+    text-align: left;
+    padding: 5px 15px
+}
+
+.marketing .marketing_form .magnet_state .info_tip2 {
+    float: none
+}
+
+.marketing .marketing_form .magnet_state .status_tip {
+    line-height: 25px
+}
+
+.marketing .marketing_form .note_platforms_hint .info_tip2 {
+    margin-top: 5px
+}
+
+.marketing .marketing_form .reset_message {
+    float: right
+}
+
+.marketing .marketing_form .preview_message {
+    margin-top: 10px
+}
+
+.marketing .marketing_form .preview_message.sms {
+    width: 545px
+}
+
+.marketing .marketing_form .preview_message.email {
+    width: 745px
+}
+
+.marketing .marketing_form .customer_magnet {
+    width: 85%
+}
+
+.marketing .marketing_form .customer_magnet .message_inactive {
+    opacity: .6
+}
+
+.marketing .marketing_form .customer_magnet .inline-error {
+    max-width: 550px !important
+}
+
+.marketing .marketing_form .customer_magnet .phase_title {
+    border: 1px solid silver;
+    padding: 16px 10px;
+    margin-top: 10px;
+    background: #f6f6f6;
+    min-width: 725px;
+    color: #414151;
+    cursor: pointer
+}
+
+.marketing .marketing_form .customer_magnet .phase_title.title_tab_active {
+    background: #e9fffb
+}
+
+.marketing .marketing_form .customer_magnet .phase_title:hover .move_tab {
+    text-decoration: underline
+}
+
+.marketing .marketing_form .customer_magnet .phase_body {
+    border: 1px solid silver;
+    border-top: 0;
+    padding: 20px 10px;
+    min-width: 725px
+}
+
+.marketing .marketing_form .customer_magnet .phase_body input.phase_days_after {
+    width: 35px
+}
+
+.marketing .marketing_form .customer_magnet .phase_body .magnet_platforms_hint {
+    line-height: 25px
+}
+
+.marketing .marketing_form .customer_magnet .phase_body .email_message_block li label {
+    margin: 10px 0 0 0
+}
+
+.marketing .marketing_form .customer_magnet .phase_body .sms_message_block, .marketing .marketing_form .customer_magnet .phase_body .email_message_block, .marketing .marketing_form .customer_magnet .phase_body .preview_message {
+    display: inline-block
+}
+
+.marketing .marketing_form .customer_magnet .phase_body .sms_message_block.block_inactive, .marketing .marketing_form .customer_magnet .phase_body .email_message_block.block_inactive, .marketing .marketing_form .customer_magnet .phase_body .preview_message.block_inactive {
+    display: none
+}
+
+.marketing .marketing_form .customer_magnet .phase_body .sms_message_block li label, .marketing .marketing_form .customer_magnet .phase_body .email_message_block li label, .marketing .marketing_form .customer_magnet .phase_body .preview_message li label {
+    margin-bottom: 5px;
+    min-width: 200px
+}
+
+.marketing .marketing_form .customer_magnet .preview_message {
+    width: 545px;
+    margin-right: 5px
+}
+
+.marketing .marketing_form .customer_magnet .preview_message.email {
+    width: 690px
+}
+
+.marketing .marketing_form .customer_magnet .phase_message_nr {
+    font-size: 16px;
+    font-weight: 600;
+    display: inline
+}
+
+.marketing .marketing_form .customer_magnet .campaign_name {
+    display: inline;
+    font-size: 16px
+}
+
+.marketing .marketing_form .customer_magnet .move_tab {
+    font-size: 13px;
+    font-family: "Open Sans";
+    font-weight: 400;
+    color: #1e90ff;
+    cursor: pointer
+}
+
+.marketing .marketing_form .customer_magnet .tab_inactive {
+    display: none
+}
+
+.marketing .marketing_form .tooltip {
+    max-width: 310px
+}
+
+.marketing .marketing_form .email_subject {
+    width: 320px
+}
+
+.marketing .marketing_form .sms_message_block, .marketing .marketing_form .email_message_block {
+    background: #fbfbfb;
+    padding: 20px;
+    border: 1px solid silver;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 15px
+}
+
+.marketing .marketing_form .sms_message_block label, .marketing .marketing_form .email_message_block label {
+    display: block;
+    color: #313140;
+    font-weight: 600;
+    min-width: 200px
+}
+
+.marketing .marketing_form .sms_message_block.preferred_platform, .marketing .marketing_form .email_message_block.preferred_platform {
+    background: #eff8fe;
+    border-color: #b9daff
+}
+
+.marketing .marketing_form .sms_message_block .preferred_label, .marketing .marketing_form .email_message_block .preferred_label {
+    color: #54a2ff;
+    float: right;
+    font-weight: 600;
+    margin-top: 3px
+}
+
+.marketing .marketing_form .sms_message_block .message_title, .marketing .marketing_form .email_message_block .message_title {
+    font-size: 1.2em;
+    font-weight: 600;
+    display: inline
+}
+
+.marketing .marketing_form .sms_message_block .message_type, .marketing .marketing_form .email_message_block .message_type {
+    display: inline;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #868695
+}
+
+.marketing .marketing_form .sms_message_block .edit_email_title, .marketing .marketing_form .email_message_block .edit_email_title {
+    margin-left: 5px;
+    font-weight: 600
+}
+
+.marketing .marketing_form .sms_message_block .cke_bottom, .marketing .marketing_form .email_message_block .cke_bottom {
+    display: none
+}
+
+.marketing .marketing_form .sms_message_block .cke_top, .marketing .marketing_form .email_message_block .cke_top {
+    background: #fdfdfd
+}
+
+.marketing .marketing_form .sms_message_block {
+    padding: 5px 20px
+}
+
+.marketing .marketing_form .inspection_visit_form .email_message_block {
+    margin-top: 20px
+}
+
+.marketing .marketing_form .platform_radio_buttons {
+    display: inline;
+    margin-left: 105px
+}
+
+.marketing .marketing_form .platform_radio_buttons label {
+    width: 80px;
+    margin-left: 5px
+}
+
+.marketing .marketing_form .select_services .select2-choices {
+    width: 350px
+}
+
+.marketing .marketing_form .services_errors {
+    margin-left: 182px
+}
+
+.marketing .marketing_form .edit_progress_block {
+    float: left;
+    margin: 0 20px 0 165px
+}
+
+.marketing .marketing_form .edit_message_block {
+    margin-top: 0;
+    min-width: 900px
+}
+
+.marketing .marketing_form .edit_message_block .start_point {
+    margin-left: 0
+}
+
+.marketing .marketing_form .dotted_line {
+    height: 50px;
+    border-left: 1px dotted #8a8684;
+    margin-left: 17px
+}
+
+.marketing .marketing_form .dotted_line.sms_line {
+    height: 140px
+}
+
+.marketing .marketing_form .dotted_line.sms_reminder_line {
+    height: 303px
+}
+
+.marketing .marketing_form .dotted_line.email_line {
+    height: 170px
+}
+
+.marketing .marketing_form .dotted_line.email_reminder_line {
+    height: 326px
+}
+
+.marketing .marketing_form .reminder_actions {
+    margin-top: 40px
+}
+
+.marketing .marketing_form .days_after_field {
+    width: 35px
+}
+
+.marketing .start_point {
+    color: #01adf2;
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 15px;
+    display: inline;
+    margin-left: 15px
+}
+
+.marketing .end_point {
+    color: #01adf2;
+    font-weight: 600;
+    line-height: 20px
+}
+
+.marketing .end_point.sms {
+    margin-top: 2px
+}
+
+.marketing .end_point.email {
+    margin-top: 11px
+}
+
+.marketing .event_icon {
+    margin-left: 10px
+}
+
+.marketing .start_configuration a {
+    margin-top: 20px
+}
+
+.marketing .two_labels_boolean .controls {
+    width: 65%
+}
+
+.marketing .two_labels_boolean .controls label {
+    font-weight: bold;
+    margin: 0 0 0 19px;
+    width: 175px
+}
+
+.marketing .two_labels_boolean .controls input {
+    bottom: 4px
+}
+
+.marketing .activate_full_marketing_desc {
+    font-size: 18px;
+    margin: 30px 0 20px 0
+}
+
+.marketing .activate_full_marketing {
+    border: 1px solid #e0e0e0;
+    padding: 20px
+}
+
+.marketing .activate_full_marketing .name {
+    margin-bottom: 15px
+}
+
+.marketing .activate_full_marketing .name a {
+    color: #000;
+    font-size: 1.3em;
+    font-weight: 600
+}
+
+.marketing .activate_full_marketing .ext_ribbon {
+    position: absolute;
+    top: 0;
+    right: 0
+}
+
+.marketing .activate_full_marketing .ext_ribbon_text {
+    position: absolute;
+    top: 20px;
+    right: 5px;
+    font-size: 1.1em;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    writing-mode: lr-tb;
+    font-weight: 600;
+    color: #fff
+}
+
+.marketing .activate_full_marketing .ext_image {
+    float: left;
+    margin-right: 10px
+}
+
+.marketing .activate_full_marketing .btn_extension {
+    color: #fff;
+    margin-top: 20px;
+    font-weight: 600
+}
+
+.marketing #delivery_calendar, .marketing #delivery_history {
+    margin-top: 40px
+}
+
+.marketing #delivery_calendar .delivery_date, .marketing #delivery_history .delivery_date {
+    font-size: 18px
+}
+
+.marketing #delivery_calendar .no_delivery, .marketing #delivery_history .no_delivery {
+    color: #bbb;
+    font-size: 15px;
+    font-family: "Lato", Verdana, sans-serif;
+    margin-left: 5px
+}
+
+.marketing #delivery_calendar .stat_elem, .marketing #delivery_history .stat_elem {
+    margin-top: 8px
+}
+
+.marketing #delivery_calendar .stat_elem .messages_number, .marketing #delivery_history .stat_elem .messages_number {
+    color: #444;
+    font-weight: 800;
+    margin-left: 5px
+}
+
+.marketing #delivery_calendar .platform_stats, .marketing #delivery_history .platform_stats {
+    display: inline;
+    margin-left: 5px
+}
+
+.marketing #delivery_calendar .week_day, .marketing #delivery_history .week_day {
+    color: #727284;
+    font-size: 13px
+}
+
+.marketing #delivery_calendar .possible_delivery, .marketing #delivery_history .possible_delivery {
+    margin-bottom: 5px;
+    color: #a8a8b7
+}
+
+.marketing #tabs ul li {
+    border-bottom: 0
+}
+
+.marketing #tabs ul li a {
+    padding: 0 10px !important
+}
+
+.marketing #tabs ul.dropdown-menu a {
+    padding: 6px 10px;
+    line-height: 30px
+}
+
+.marketing #vertical_tabs ul {
+    width: 160px;
+    margin-top: 45px
+}
+
+.marketing #vertical_tabs ul li[aria-selected=false] {
+    width: 157px;
+    margin-left: 1px
+}
+
+.marketing #vertical_tabs ul li[aria-selected=true] {
+    margin-left: 1px
+}
+
+.marketing #vertical_tabs ul li {
+    border-bottom: 0;
+    height: 30px;
+    padding: 0
+}
+
+.marketing #vertical_tabs ul li a {
+    line-height: 30px;
+    height: 30px;
+    vertical-align: middle;
+    padding: 0
+}
+
+.marketing .notification_params, .marketing .customer_note_params {
+    margin-left: 50px
+}
+
+.marketing .notification_params label, .marketing .customer_note_params label {
+    width: 100px;
+    font-weight: normal
+}
+
+.marketing .notification_params .value, .marketing .customer_note_params .value {
+    font-weight: bold
+}
+
+.marketing .notification_params .tag_green, .marketing .notification_params .tag_red, .marketing .customer_note_params .tag_green, .marketing .customer_note_params .tag_red {
+    font-weight: normal
+}
+
+.marketing .reminder .message_value {
+    background: none repeat scroll 0 0 #fffff4;
+    border: 1px solid #e1e1e1;
+    margin-top: 10px;
+    padding: 5px;
+    margin-left: 40px;
+    width: 50%
+}
+
+.marketing .reminder .reminder_end_icon {
+    margin-left: 121px
+}
+
+.marketing .reminder .message_body {
+    margin-top: 10px
+}
+
+.marketing .reminder .email_message_block, .marketing .reminder .sms_message_block {
+    margin-top: 5px
+}
+
+.marketing .reminder .platform_radio_buttons {
+    margin-left: 95px
+}
+
+.marketing .reminder .reminder_templates {
+    margin-bottom: 10px
+}
+
+.marketing .reminder .inspection_time_hint .info_tip2, .marketing .reminder .platforms_hint .info_tip2 {
+    margin-top: 5px
+}
+
+.marketing .reminder .templates_link {
+    margin: 20px 0 0 0
+}
+
+.marketing .reminder .campaign_end_icon {
+    margin-top: -15px !important
+}
+
+.marketing .reminder_params, .marketing .campaign_status_info {
+    margin: 20px 0 10px 17px
+}
+
+.marketing .reminder_params li, .marketing .campaign_status_info li {
+    list-style-type: none;
+    margin-bottom: 5px
+}
+
+.marketing .reminder_params label, .marketing .campaign_status_info label {
+    width: 150px;
+    font-weight: normal
+}
+
+.marketing .reminder_params .value, .marketing .reminder_params .status, .marketing .campaign_status_info .value, .marketing .campaign_status_info .status {
+    display: inline;
+    font-weight: bold;
+    margin-left: 5px;
+    padding-left: 10px;
+    padding-right: 0 !important
+}
+
+.marketing .reminder_params .reminder_status, .marketing .campaign_status_info .reminder_status {
+    margin-bottom: 10px
+}
+
+.marketing .campaign_status_info {
+    margin-left: 150px;
+    margin-top: 0
+}
+
+.marketing .campaign_status_info .status {
+    margin-left: 0
+}
+
+.marketing .messages_preview {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 40px 0 0 17px
+}
+
+.marketing .simple_form .control-group.boolean input.boolean {
+    left: 20px
+}
+
+.marketing .simple_form .control-group.boolean label {
+    padding-left: 20px
+}
+
+.marketing .type_box {
+    border: 2px solid #ddd;
+    width: 100%;
+    min-height: 70px;
+    margin: 10px;
+    padding: 10px;
+    overflow: hidden
+}
+
+.marketing .type_box .arrow img {
+    float: right;
+    margin-top: 10px
+}
+
+.marketing .type_box .defined, .marketing .type_box .activated {
+    float: left;
+    font-size: 1.1em;
+    margin-top: 20px;
+    width: 90px
+}
+
+.marketing .type_box .type_name {
+    font-weight: bold;
+    font-size: 1.4em;
+    float: left;
+    width: 25%;
+    margin-top: 15px
+}
+
+.marketing .type_box .type_description {
+    float: left;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-left: 40px;
+    width: 58%;
+    display: block;
+    border-radius: 15px
+}
+
+.marketing .sent_message .tooltip p {
+    text-align: initial
+}
+
+.marketing .sent_message .tooltip-inner {
+    color: #000;
+    background: #f7f7f7;
+    box-shadow: 0 0 4px #888
+}
+
+.marketing .sent_message .tooltip.top .tooltip-arrow {
+    display: none
+}
+
+.marketing .sent_message .tooltip.in {
+    opacity: 1;
+    filter: alpha(opacity=100)
+}
+
+.marketing .wysiwyg {
+    background: 0
+}
+
+.marketing .details_row {
+    padding-right: 0 !important;
+    border-bottom: 1px solid #dedcd9;
+    padding: 8px
+}
+
+.marketing .details_row:last-child, .marketing .details_row.no_border {
+    border-bottom: 0
+}
+
+.marketing .details_row:hover {
+    background-color: #f3ffff
+}
+
+.marketing .details_row .description {
+    clear: both
+}
+
+.marketing .active_campaigns {
+    margin-top: 10px;
+    padding-top: 5px;
+    border-top: 1px solid #ddd
+}
+
+.marketing .magnet_desc {
+    width: 65%;
+    margin-left: 20px
+}
+
+.marketing .magnet_desc .magnet_title {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin: 0 0 20px 30px
+}
+
+.marketing .magnet_desc .why_worth_it {
+    font-size: 1.3em;
+    margin: 20px 0 20px 0
+}
+
+.marketing .magnet_desc .magnet_desc_icon {
+    float: left
+}
+
+.marketing .magnet_desc .service_state {
+    margin-top: 20px
+}
+
+.marketing .magnet_desc .service_state .state {
+    font-weight: bold;
+    display: inline;
+    margin-bottom: 10px
+}
+
+.marketing .magnet_desc .activate_campaign {
+    margin-top: 10px
+}
+
+.marketing #clients_list table {
+    table-layout: fixed;
+    margin-top: 20px;
+    border-collapse: collapse;
+    width: 100%
+}
+
+.marketing #clients_list table td {
+    padding: 8px
+}
+
+.marketing #clients_list table th {
+    padding: 12px 8px
+}
+
+.marketing #clients_list.received_reminders_list table {
+    margin-top: 40px
+}
+
+.marketing #clients_list .tooltip-inner {
+    text-align: left
+}
+
+.marketing #campaign_effectiveness .ui-datepicker-trigger {
+    margin-right: 20px
+}
+
+.marketing #campaign_effectiveness .effectiveness_title {
+    font-weight: 600;
+    font-size: 1.2em;
+    margin: 15px 0
+}
+
+.marketing #statistics .magnet_stats_box {
+    display: block;
+    border: 1px solid #bebebe;
+    width: 20%;
+    margin: 20px 10px 20px 0;
+    padding: 10px;
+    float: left;
+    min-height: 40px
+}
+
+.marketing #statistics .magnet_stats_box .stat {
+    font-size: 1.3em;
+    font-weight: bold
+}
+
+.marketing .magnets_date, .marketing .notes_date {
+    margin: 0 5px;
+    width: 120px;
+    background: url("/assets/icons/date_change.png") no-repeat scroll 98% center #fff !important
+}
+
+.marketing .customer_note .wysiwyg-input, .marketing .notification .wysiwyg-input, .marketing .reminder .wysiwyg-input, .marketing .customer_magnet .wysiwyg-input {
+    width: 600px !important
+}
+
+.marketing .campaign_efficiency {
+    clear: both;
+    font-size: 1.2em
+}
+
+.marketing .campaign_efficiency h2 {
+    float: left
+}
+
+.marketing .campaign_efficiency .date_range {
+    float: left;
+    margin: 25px 0 0 140px
+}
+
+.marketing .campaign_efficiency .messages_effectiveness {
+    clear: both
+}
+
+.marketing .campaign_efficiency .campaign_efficiency_box {
+    clear: both;
+    margin-top: 20px;
+    padding: 10px 10px 10px 0
+}
+
+.marketing .campaign_efficiency .campaign_efficiency_box .campaign_progress {
+    float: left;
+    width: 50%
+}
+
+.marketing .campaign_efficiency .campaign_efficiency_box .recovered_clients {
+    font-weight: 600;
+    float: left;
+    width: 45%;
+    margin: 0 30px 30px 0;
+    min-width: 420px
+}
+
+.marketing .campaign_efficiency .campaign_efficiency_box .recovered_clients .icon, .marketing .campaign_efficiency .campaign_efficiency_box .recovered_clients .navbar .navbar-right .omnibox-wrapper:before, .navbar .navbar-right .marketing .campaign_efficiency .campaign_efficiency_box .recovered_clients .omnibox-wrapper:before, .marketing .campaign_efficiency .campaign_efficiency_box .recovered_clients .dashboard .change_box .change_value.increase strong:after, .dashboard .change_box .change_value.increase .marketing .campaign_efficiency .campaign_efficiency_box .recovered_clients strong:after, .marketing .campaign_efficiency .campaign_efficiency_box .recovered_clients .dashboard .change_box .change_value.decrease strong:after, .dashboard .change_box .change_value.decrease .marketing .campaign_efficiency .campaign_efficiency_box .recovered_clients strong:after {
+    margin-right: 5px;
+    width: 25px
+}
+
+.marketing .campaign_efficiency .campaign_efficiency_box .recovered_clients .recovered_data {
+    width: 80%;
+    padding-bottom: 10px;
+    font-weight: normal;
+    margin: 0 0 10px 34px
+}
+
+.marketing .campaign_efficiency .campaign_efficiency_box .progress_label {
+    font-weight: 600;
+    clear: both
+}
+
+.marketing .campaign_efficiency .campaign_efficiency_box .progress_messages {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    font-size: .9em
+}
+
+.marketing .campaign_efficiency .campaign_efficiency_box .progress_clients {
+    margin-bottom: 20px;
+    font-size: .9em;
+    float: right
+}
+
+.marketing .campaign_efficiency .campaign_efficiency_box .progress_phase {
+    width: 350px
+}
+
+.marketing .campaign_efficiency .campaign_efficiency_box .recovered_count {
+    margin-right: 5px;
+    font-size: 18px;
+    font-weight: normal
+}
+
+.marketing .campaign_efficiency .campaign_efficiency_box .all_new_clients {
+    margin-left: 5px;
+    font-size: 1.1em
+}
+
+.marketing .campaign_efficiency .campaign_efficiency_box .recovered_percentage {
+    font-weight: normal;
+    margin-left: 5px;
+    color: #b4b1b0
+}
+
+.marketing .campaign_efficiency .campaign_efficiency_box .spent_after_visit {
+    font-size: 18px;
+    font-weight: normal;
+    margin-left: 34px
+}
+
+.marketing .campaign_efficiency .campaign_efficiency_box .progress {
+    width: 350px;
+    height: 26px;
+    border: 1px solid #bebebe;
+    position: relative;
+    padding: 2px;
+    border-radius: 0;
+    margin-bottom: 0;
+    background: #fff
+}
+
+.marketing .campaign_efficiency .campaign_efficiency_box .percent_label {
+    position: absolute;
+    left: 50%
+}
+
+.marketing .campaign_efficiency .campaign_efficiency_box .bar {
+    height: 20px;
+    background-color: #99e1ff;
+    margin-bottom: 0
+}
+
+.marketing .magnet_effectiveness .stats_details {
+    margin-bottom: 40px;
+    color: #656565
+}
+
+.marketing .magnet_effectiveness .stats_details .stats_detail {
+    font-size: 14px;
+    padding-left: 55px
+}
+
+.marketing .magnet_effectiveness .stats_details .stats_detail .main_detail {
+    font-weight: 600
+}
+
+.marketing .magnet_effectiveness .stats_details .stats_detail .detail_label {
+    border-top: 1px solid #ddd;
+    color: #818181;
+    font-size: 13px;
+    margin-top: 5px;
+    padding-top: 5px
+}
+
+.marketing .magnet_effectiveness .stats_details .stats_detail .billing, .marketing .magnet_effectiveness .stats_details .stats_detail .show_recovered_list {
+    color: #5e94e1;
+    font-size: 13px
+}
+
+.marketing .magnet_effectiveness .recovered_list {
+    font-size: 13px;
+    margin-top: 42px;
+    display: none
+}
+
+.marketing .magnet_effectiveness .recovered_list .list_title {
+    font-size: 14px;
+    font-weight: bold;
+    display: inline
+}
+
+.marketing .magnet_effectiveness .recovered_list .list_count {
+    font-size: 14px;
+    display: inline
+}
+
+.marketing .magnet_effectiveness .recovered_list ol {
+    margin-top: 5px;
+    padding-left: 20px
+}
+
+.marketing .magnet_effectiveness .after_phase {
+    border-bottom: 1px solid #ddd;
+    font-weight: 600
+}
+
+.marketing .magnet_effectiveness .phase {
+    margin-bottom: 15px
+}
+
+.marketing .magnet_effectiveness .phase_nr {
+    display: inline;
+    font-weight: 600
+}
+
+.marketing .magnet_effectiveness .phase_recovered {
+    display: inline;
+    font-weight: 600
+}
+
+.marketing .magnet_effectiveness .phase_recovered_label {
+    color: #848484;
+    display: inline
+}
+
+.marketing .magnet_effectiveness .days_after {
+    display: inline;
+    color: #888
+}
+
+.marketing .magnet_effectiveness .global_row {
+    margin-bottom: 26px
+}
+
+.marketing .magnet_effectiveness .all_recovered {
+    font-family: "Lato", Verdana, sans-serif;
+    font-size: 58px;
+    margin-top: -55px
+}
+
+.marketing .magnet_effectiveness .recovered_number {
+    text-align: center;
+    align-items: center;
+    display: flex
+}
+
+.marketing .magnet_effectiveness .recovered_after_phase {
+    font-size: 12px
+}
+
+.marketing .magnet_effectiveness .effectiveness_stat {
+    font-weight: 600;
+    padding-left: 0;
+    margin-top: -10px;
+    font-family: "Open Sans", Verdana, sans-serif;
+    font-size: 36px
+}
+
+.marketing .magnet_effectiveness .effectiveness_stat.phase_1 {
+    color: #00bff8
+}
+
+.marketing .magnet_effectiveness .effectiveness_stat.phase_2 {
+    color: #e5572a
+}
+
+.marketing .magnet_effectiveness .effectiveness_stat.phase_3 {
+    color: #53cc1d
+}
+
+.marketing .magnet_effectiveness .row-eq-height {
+    display: inline-flex
+}
+
+.marketing .magnet_effectiveness .campaign_efficiency_box {
+    padding: 10px 0 10px 10px;
+    margin-left: 5px
+}
+
+.marketing .magnet_effectiveness .campaign_efficiency_box .recovered_data .recovered_count {
+    font-family: "Lato", Verdana, sans-serif;
+    font-size: 32px;
+    font-weight: 600
+}
+
+.marketing .magnet_effectiveness .campaign_efficiency_box .eff_label, .marketing .magnet_effectiveness .campaign_efficiency_box .eff_percent {
+    font-size: 16px;
+    font-family: "Open Sans";
+    color: #b1b1b1
+}
+
+.marketing .magnet_effectiveness .campaign_efficiency_box .percentage_value {
+    font-weight: 600;
+    color: #979797
+}
+
+.marketing .magnet_effectiveness .campaign_efficiency_box .eff_percent {
+    font-size: 12px
+}
+
+.marketing .magnet_effectiveness .campaign_efficiency_box .spent_after_visit {
+    margin-top: 40px;
+    margin-left: 0;
+    font-family: "Lato", Verdana, sans-serif;
+    font-size: 32px;
+    font-weight: 600
+}
+
+.marketing .magnet_effectiveness .campaign_efficiency_box .all_sent {
+    font-weight: normal
+}
+
+.marketing .magnet_effectiveness .global_effectiveness {
+    margin-top: 30px
+}
+
+.marketing .magnet_effectiveness .eff_title {
+    margin: 45px 0 10px 0;
+    font-size: 18px
+}
+
+.marketing .magnet_effectiveness .messages_effectiveness .table td {
+    font-size: 13px;
+    padding: 13px 0
+}
+
+.marketing .magnet_effectiveness .messages_effectiveness .table thead th {
+    border: none !important;
+    padding-left: 0;
+    font-weight: normal;
+    font-size: 12px;
+    color: #b1b1b1
+}
+
+.marketing .magnet_effectiveness .messages_effectiveness .table tr.selected td {
+    background: 0
+}
+
+.marketing .magnet_effectiveness .messages_effectiveness .table td.inactive {
+    color: #b1b1b1
+}
+/** GOOGLE CALENDAR **/
+.google_calendar_clients .dropdown .not_connected a, .google_calendar_clients .dropdown .connected a {
+    font-weight: 600;
+    margin-left: 0
+}
+
+.google_calendar_clients .dropdown .connected a {
+    display: block;
+    color: grey
+}
+
+.google_calendar_clients .dropdown-menu {
+    min-width: 250px
+}
+
+.google_calendar_clients .connected_user {
+    display: inline;
+    margin-right: 20px
+}
+
+.google_calendar_clients table tbody td {
+    vertical-align: middle
+}
+
+.google_calendar_clients table tbody td.user {
+    font-size: 16px;
+    font-weight: 600
+}
+
+.google_calendar_clients table tbody td.user a {
+    color: #313140
+}
+
+.google_calendar_clients table tbody td.account .account_email {
+    font-weight: 600;
+    margin-left: 10px;
+    display: inline
+}
+
+.google_calendar_clients table tbody td.avatar {
+    width: 60px
+}
+
+.google_calendar_clients table tbody td.avatar a {
+    display: inline-block;
+    padding: 2px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px
+}
+
+.google_calendar_clients table tbody td.avatar img {
+    width: 40px;
+    display: block;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px
+}
+
+.google_calendar_clients table tbody td.avatar img.gender {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px
+}
+
+/** INFO WINDOW **/
+.infoWindow {
+    margin: 0 15px;
+    padding: 0
+}
+
+.infoWindow .select2-container {
+    width: 100%
+}
+
+.infoWindow .customer_popover {
+    color: #313140;
+    border-bottom: 1px dotted #000;
+    text-decoration: none
+}
+
+.infoWindow .print-summary {
+    margin-left: 10px
+}
+
+.infoWindow #event_beginning_date_1, .infoWindow #two_dates, .infoWindow #event_allday, .infoWindow #event_standard {
+    display: none
+}
+
+.infoWindow .c {
+    height: 4px;
+    width: 100%
+}
+
+.infoWindow #dialog {
+    display: none
+}
+
+.infoWindow .ui-corner-all {
+    border-radius: 3px
+}
+
+.infoWindow .select_btn {
+    border-left: 1px solid #b3b3b3;
+    height: 25px;
+    width: 24px;
+    font-size: 10px;
+    display: block;
+    float: left;
+    position: static
+}
+
+.infoWindow .select_btn .ui-icon {
+    left: 0;
+    margin-left: 3px;
+    top: 0;
+    margin-top: 4px;
+    position: static;
+    display: block;
+    float: left
+}
+
+.infoWindow .light_label {
+    color: #7e7e7e;
+    font-weight: normal
+}
+
+.infoWindow .employee_data {
+    margin-top: 4px
+}
+
+.infoWindow label.canceled {
+    font-weight: normal
+}
+
+.infoWindow #description {
+    font-size: 12px;
+    padding: 4px 6px
+}
+
+.infoWindow .l {
+    float: left
+}
+
+.infoWindow .r {
+    float: right;
+    text-align: right
+}
+
+.infoWindow .bg1 .advanced, .infoWindow .bg2 .advanced, .infoWindow .bg3 .advanced, .infoWindow .bg4 .advanced {
+    display: none
+}
+
+.infoWindow .bg1 {
+    padding: 11px 8px 11px 0;
+    font-size: 11px;
+    text-align: left;
+    background: #fafafa;
+    border-bottom: 1px solid #e6e6e6
+}
+
+.infoWindow .bg1 .left {
+    float: left;
+    width: 180px
+}
+
+.infoWindow .bg1 .right {
+    margin-right: 20px
+}
+
+.infoWindow .bg1 .duration_top {
+    float: left;
+    margin-top: 3px;
+    margin-left: 2px
+}
+
+.infoWindow .advanced_options {
+    margin-top: 8px
+}
+
+.infoWindow .bg2 {
+    margin: 9px 8px 0 8px;
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 0;
+    padding-right: 14px;
+    padding-left: 8px;
+    min-height: 40px
+}
+
+.infoWindow .bg2 .fixed_height {
+    height: 109px
+}
+
+.infoWindow .bg2 .fixed_height2 {
+    height: 137px
+}
+
+.infoWindow .bg2 .advanced_summary {
+    padding-top: 6px;
+    width: 100%;
+    clear: both;
+    display: none
+}
+
+.infoWindow .bg2 .reminder_info {
+    display: none
+}
+
+.infoWindow .bg2 .sum {
+    min-height: 17px
+}
+
+.infoWindow .bg2 #created {
+    margin-bottom: 9px
+}
+
+.infoWindow .bg2 .advanced_summary .l {
+    width: 100%
+}
+
+.infoWindow .bg2 .price {
+    max-width: 55px
+}
+
+.infoWindow .bg2 .price.disabled {
+    border: 0;
+    background: transparent;
+    color: #000
+}
+
+.infoWindow .bg2 .description_txt {
+    font-size: 12px
+}
+
+.infoWindow .bg2 div.advanced_options {
+    float: right
+}
+
+.infoWindow .bg2 div.advanced_options a {
+    color: #fff
+}
+
+.infoWindow .bg2 .add_payment_form, .infoWindow .bg2 .activate-profit-link {
+    margin-top: 10px;
+    padding-left: 10px;
+    display: block;
+    float: left
+}
+
+.infoWindow .bg2 .price_summary_t, .infoWindow .bg2 .profit_summary_t {
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    float: left
+}
+
+.infoWindow .bg2 .price_summary_t select, .infoWindow .bg2 .profit_summary_t select {
+    max-width: 135px
+}
+
+.infoWindow .bg2 .price_summary_t table, .infoWindow .bg2 .profit_summary_t table {
+    border-collapse: collapse
+}
+
+.infoWindow .bg2 .price_summary_t table td, .infoWindow .bg2 .price_summary_t table th, .infoWindow .bg2 .profit_summary_t table td, .infoWindow .bg2 .profit_summary_t table th {
+    padding: 3px 5px;
+    border: 0
+}
+
+.infoWindow .bg2 .price_summary_t table td:first-child, .infoWindow .bg2 .profit_summary_t table td:first-child {
+    min-width: 53px
+}
+
+.infoWindow .bg2 .price_summary_t table .top, .infoWindow .bg2 .profit_summary_t table .top {
+    border-top: 1px solid #ccc
+}
+
+.infoWindow .bg2 .price_summary_t table .last_row, .infoWindow .bg2 .profit_summary_t table .last_row {
+    display: none
+}
+
+.infoWindow .bg2 .profit_summary_t {
+    max-width: 380px
+}
+
+.infoWindow .bg2 .profit_summary_t input[type=text] {
+    max-width: 55px
+}
+
+.infoWindow .bg2 .profit_summary_t span {
+    line-height: 19px;
+    display: inline-block;
+    padding-left: 4px
+}
+
+.infoWindow .bg2 .profit_summary_t span abbr.help {
+    margin: 0;
+    vertical-align: text-bottom
+}
+
+.infoWindow .bg2 #profit-box {
+    padding-top: 7px
+}
+
+.infoWindow .bg2 #price, .infoWindow .bg2 #price2 {
+    font-weight: bold
+}
+
+.infoWindow .bg2 .services_content {
+    float: left;
+    width: auto
+}
+
+.infoWindow .bg2 .services {
+    display: none
+}
+
+.infoWindow .bg2 .services div {
+    background: #fafafa;
+    padding: 2px 5px;
+    margin-bottom: 2px;
+    overflow: hidden;
+    border: 1px solid #ccd6dd;
+    border-radius: 3px
+}
+
+.infoWindow .bg2 .services div .l {
+    float: left;
+    margin: 0;
+    padding: 1px 0 0 0;
+    width: 315px;
+    border: 0;
+    border-radius: 0
+}
+
+.infoWindow .bg2 .services .noradius {
+    border-radius: 0
+}
+
+.infoWindow .bg2 .services div a, .infoWindow .bg2 .price_summary_t td.no_padding a {
+    float: right;
+    text-indent: -9999px
+}
+
+.infoWindow .bg2 .price_summary_t td.no_padding a {
+    margin-right: 5px
+}
+
+.infoWindow .bg2 .fixed_height3 {
+    height: 56px
+}
+
+.infoWindow .bg2 .free-gap-period input#search_started_at {
+    border-radius: 3px;
+    width: 90px;
+    font-size: 11px;
+    background: #fff url(embed/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x;
+    color: #222
+}
+
+.infoWindow .bg2 .free-gap-period input#search_period_txt {
+    width: 80px
+}
+
+.infoWindow .bg2 label {
+    text-align: right;
+    padding-top: 4px;
+    padding-right: 10px;
+    margin-right: 0
+}
+
+.infoWindow .bg2 label.canceled {
+    width: 160px;
+    text-align: left
+}
+
+.infoWindow .bg2 div.line {
+    padding-bottom: 7px
+}
+
+.infoWindow .bg2 div.no_padding, .infoWindow .bg2 .no_padding {
+    padding: 0 !important
+}
+
+.infoWindow .bg2 #customer {
+    border-right-width: 1px;
+    margin-right: 1px
+}
+
+.infoWindow .bg2 #customer::-ms-clear {
+    display: none
+}
+
+.infoWindow .bg2 .advanced label {
+    width: 89px;
+    text-align: left;
+    float: left
+}
+
+.infoWindow .bg2 .advanced input {
+    width: 20px
+}
+
+.infoWindow .bg2 .when_not_an_appointment_description {
+    display: none
+}
+
+.infoWindow .bg2 #canceled {
+    width: auto;
+    height: auto;
+    padding-top: 0;
+    margin-right: 3px;
+    margin-top: 1px
+}
+
+.infoWindow .bg2 .basic .r {
+    width: 220px;
+    float: right
+}
+
+.infoWindow .bg2 .basic .l {
+    width: 200px
+}
+
+.infoWindow label.bold, .infoWindow span.bold {
+    font-weight: normal;
+    color: #222;
+    font-size: 12px;
+    font-family: Arial, sans-serif
+}
+
+.infoWindow .reminders_setup {
+    padding-bottom: 9px
+}
+
+.infoWindow .reminders_setup .select_btn {
+    margin-right: 10px
+}
+
+.infoWindow .reminders_setup .reminder {
+    margin-top: 4px
+}
+
+.infoWindow .reminders_platform_setup {
+    padding-top: 4px;
+    padding-left: 10px !important
+}
+
+.infoWindow label.inline {
+    display: inline;
+    float: none;
+    width: auto;
+    padding-top: 0
+}
+
+.infoWindow .hr {
+    border-bottom: 1px solid #CCC;
+    width: 100%;
+    height: 1px;
+    margin: 5px 0
+}
+
+.infoWindow #duration, .infoWindow #reserved_duration, .infoWindow #suggested_price {
+    font-weight: 600
+}
+
+.infoWindow #add_service {
+    display: none
+}
+
+.infoWindow .add_simple {
+    float: right;
+    z-index: 30;
+    margin-bottom: 12px
+}
+
+.infoWindow .services_line .add_simple {
+    float: none;
+    position: relative;
+    left: 14px
+}
+
+.infoWindow .hr_bg {
+    background: url(../../image/embed/hr_bg-d331621491230fb947281983b95a2e5a.png) repeat-x top
+}
+
+.infoWindow .bg4 {
+    padding: 8px 21px 8px 17px;
+    background: #fafafa;
+    border-top: 1px solid #e6e6e6;
+    min-height: 40px
+}
+
+.infoWindow .bg4 .history {
+    margin-left: 7px
+}
+
+.infoWindow .bg4 .destroy {
+    margin-left: 10px;
+    margin-bottom: 1px
+}
+
+.infoWindow .show_buttons button {
+    padding-top: 1px;
+    padding-bottom: 1px
+}
+
+.infoWindow .show_buttons button.close {
+    color: #000
+}
+
+.infoWindow .bg4 .left, .infoWindow #customer-form .left {
+    float: left;
+    width: 100px;
+    text-align: left;
+    padding-top: 5px
+}
+
+.infoWindow .bg4 .left2, .infoWindow #customer-form .left2 {
+    float: left;
+    width: 246px;
+    text-align: left
+}
+
+.infoWindow .bg4 .right, .infoWindow #customer-form .right {
+    float: right;
+    text-align: right;
+    width: 207px
+}
+
+.infoWindow .bg4 .right .show_advanced_form, .infoWindow #customer-form .right .show_advanced_form {
+    margin-right: 4px
+}
+
+.infoWindow .hidden {
+    display: none
+}
+
+.infoWindow input.date_selection {
+    background: #fff url(../../image/arrow_for_inputs-67180cdf5d526a65cb868110a9b81c38.png) no-repeat right top;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 11px;
+    height: 19px;
+    padding: 0 18px 0 4px;
+    width: 81px;
+    vertical-align: bottom
+}
+
+.infoWindow input.time {
+    font-size: 11px;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    height: 19px;
+    padding: 0 18px 0 4px;
+    background: #fff url(../../image/arrow_for_inputs-67180cdf5d526a65cb868110a9b81c38.png) no-repeat right top;
+    width: 54px;
+    vertical-align: bottom
+}
+
+.infoWindow .error {
+    border: 1px solid #ed511a !important
+}
+
+.infoWindow .right {
+    float: right;
+    text-align: right
+}
+
+.infoWindow #time1, .infoWindow #time2 {
+    cursor: pointer
+}
+
+.infoWindow .main_view_link {
+    overflow: hidden;
+    white-space: nowrap
+}
+
+/** GALLERY **/
+.gallery-container .sortable .image-box {
+    cursor: pointer
+}
+
+.gallery-container .ui-sortable-helper .image-box {
+    cursor: move
+}
+
+.gallery-container .gallery-image {
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid #bfbfbf;
+    text-align: center;
+    margin: 0 10px 10px 0;
+    vertical-align: top;
+    background: #fff
+}
+
+.gallery-container .gallery-image .image-box {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center
+}
+
+.gallery-container .gallery-image .image-placeholder {
+    background: #ccc;
+    height: 100%
+}
+
+.gallery-container .gallery-image img {
+    max-width: 100px;
+    max-height: 100px
+}
+
+.gallery-container .gallery-image .image-footer {
+    margin-top: 10px;
+    height: 20px;
+    line-height: 20px
+}
+
+.gallery-container .gallery-image .image-actions {
+    float: right
+}
+
+.gallery-container .gallery-image .image-actions.disabled {
+    filter: alpha(opactiy=50);
+    -ms-filter: "alpha(opacity=#$trans * 100)";
+    -moz-opacity: .5;
+    -khtml-opacity: .5;
+    opacity: .5
+}
+
+.gallery-container .gallery-image .image-actions a {
+    margin-left: 5px
+}
+
+.gallery-container .gallery-image .progress {
+    height: 100%;
+    margin: 0
+}
+
+.gallery-container.auto-width .image-box, .gallery-container.auto-width img {
+    width: auto;
+    max-width: none
+}
+
+.gallery-container.auto-width .image-box {
+    height: auto
+}
+
+.gallery-item-crop-form .title-text {
+    margin-bottom: 5px
+}
+
+.gallery-item-crop-form .original, .gallery-item-crop-form .cropped {
+    margin-bottom: 25px
+}
+
+#slick-gallery {
+    overflow: hidden;
+    height: 380px;
+    width: 300px;
+    margin: 0 auto
+}
+
+#slick-gallery .slick-slider {
+    margin-bottom: 0
+}
+
+#slick-gallery #slick-gallery-image {
+    width: 300px;
+    margin-bottom: 10px
+}
+
+#slick-gallery #slick-gallery-thumbs {
+    overflow: hidden
+}
+
+#slick-gallery #slick-gallery-thumbs a {
+    width: 60px;
+    margin-right: 5px;
+    display: inline-block;
+    text-align: center
+}
+
+/** ONBOARDING **/
+@media (max-width: 767px) {
+    .onboarding-progress, .rakieta-on-alert, .branch-task .status, .tutorial-task-event_added {
+        display: none
+    }
+
+    .onboarding-creator .body {
+        padding-left: 30px
+    }
+
+    .onboarding-creator .branch-tasks-list {
+        padding-left: 0
+    }
+}
+
+#onboarding_progress_alert {
+    background-color: #e5fff1;
+    max-width: 800px;
+    padding-bottom: 30px;
+    padding-top: 5px;
+    padding-right: 8px;
+    margin-left: 0
+}
+
+#onboarding_progress_alert #close_onboarding_progress_alert {
+    position: relative;
+    top: -5px;
+    font-size: 26px;
+    font-weight: lighter
+}
+
+#onboarding_progress_alert .onboarding-alert-content {
+    display: inline-block;
+    max-width: 570px;
+    padding-left: 11px;
+    padding-top: 20px;
+    padding-right: 30px
+}
+
+#onboarding_progress_alert .description {
+    margin-top: 10px;
+    font-size: 14px;
+    max-width: 660px
+}
+
+#onboarding_progress_alert .onboarding-alert-title {
+    font-size: 15px
+}
+
+#onboarding_progress_alert .rakieta-on-alert {
+    vertical-align: top;
+    margin-top: 20px
+}
+
+#onboarding_progress_alert #onboarding-progress-circle {
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    float: right;
+    left: -5px;
+    top: 15px
+}
+
+#onboarding_progress_alert #onboarding-progress-circle canvas {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+#onboarding_progress_alert #onboarding-progress-circle span {
+    color: #0094df;
+    display: block;
+    line-height: 100px;
+    text-align: center;
+    width: 100px;
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: 100;
+    margin-left: 5px
+}
+
+#onboarding_tutorial_alert {
+    background-color: azure;
+    max-width: 860px;
+    border-color: #6bd8f0
+}
+
+#onboarding_tutorial_alert .close {
+    position: relative;
+    top: -11px;
+    left: 5px;
+    font-size: 26px !important;
+    font-weight: 100
+}
+
+#onboarding_tutorial_alert .onboarding-alert-content {
+    display: inline-block;
+    max-width: 600px;
+    margin-left: 11px;
+    margin-top: 10px
+}
+
+#onboarding_tutorial_alert .onboarding-alert-title {
+    font-size: 15px;
+    color: #000;
+    font-weight: 600
+}
+
+#onboarding_tutorial_alert .rakieta-on-alert {
+    vertical-align: top;
+    margin-top: 10px
+}
+
+#onboarding_tutorial_alert.date_range_alert {
+    background: #deedf7;
+    border-color: #c9ebf3;
+    max-width: 600px;
+    display: none;
+    position: relative;
+    margin-bottom: -70px;
+    z-index: 100
+}
+
+#onboarding_tutorial_alert.date_range_alert .onboarding_tasks {
+    margin-top: 0;
+    color: #4b6f8d;
+    font-size: 14px;
+    max-width: 500px
+}
+
+#onboarding_tutorial_alert.date_range_alert .onboarding_tasks .range_too_short {
+    display: inline;
+    font-weight: 600
+}
+
+#onboarding_tutorial_alert.date_range_alert .onboarding_tasks .range_info {
+    display: inline;
+    color: #5c89ac
+}
+
+#onboarding_tutorial_alert.date_range_alert .show_3_months_data {
+    margin-top: 10px
+}
+
+#onboarding_tutorial_alert .onboarding_tasks {
+    display: block;
+    padding: 0 0 0 26px;
+    list-style: none;
+    counter-reset: numList;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    max-width: 550px
+}
+
+#onboarding_tutorial_alert .onboarding_tasks .completed-tutorial-circle, #onboarding_tutorial_alert .onboarding_tasks .unfinished-tutorial-circle {
+    width: 25px;
+    height: 25px;
+    font-size: 13px;
+    padding-top: 2px;
+    margin-top: -2px;
+    margin-right: 10px
+}
+
+#onboarding_tutorial_alert .onboarding_tasks .completed-tutorial-circle {
+    border-color: #28cc8c;
+    color: #fff;
+    background: #28cc8c
+}
+
+#onboarding_tutorial_alert .onboarding_tasks .unfinished-tutorial-circle {
+    border-color: #00acfc;
+    color: #00acfc;
+    background: azure
+}
+
+#onboarding_tutorial_alert .onboarding_tasks li {
+    padding-top: 15px;
+    border-bottom: 1px solid #ccd6dd;
+    padding-bottom: 15px
+}
+
+#onboarding_tutorial_alert .onboarding_tasks li .status {
+    float: right;
+    color: #71cd8d
+}
+
+#onboarding_tutorial_alert .onboarding_tasks li:last-child {
+    border-bottom: none !important
+}
+
+#onboarding_tutorial_alert .onboarding_tasks li a {
+    font-size: 14px
+}
+
+#onboarding_tutorial_alert .onboarding_tasks li a.complete {
+    text-decoration: line-through;
+    color: #71cd8d
+}
+
+/** TASKS **/
+.task-alert:first-child:before, :not(.task-alert) + .task-alert:before {
+    width: 13px;
+    height: 13px;
+    margin-top: -9px;
+    position: absolute;
+    left: 26%;
+    top: 2px;
+    background: whte;
+    transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    content: "";
+    border-left: 1px solid #3ae2fb;
+    border-top: 1px solid #3ae2fb;
+    background: #fff;
+    -webkit-border-top-left-radius: 5px;
+    -moz-border-top-left-radius: 5px;
+    border-top-left-radius: 5px
+}
+
+@media (max-width: 767px) {
+    .task-alert:first-child:before, :not(.task-alert) + .task-alert:before {
+        left: 71%
+    }
+}
+
+#new_task {
+    font-weight: normal !important;
+    font-style: italic;
+    font-size: small;
+    padding-top: 5px;
+    padding-bottom: 6px;
+    padding-left: 10px
+}
+
+.task-alert {
+    right: 20px !important;
+    border: 1px solid #3ae2fb;
+    background: #fffde5;
+    padding: 0;
+    width: 239px;
+    min-height: 109px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175)
+}
+
+.task-alert .alert-title {
+    padding-left: 10px;
+    padding-top: 10px;
+    color: #00aefa;
+    background: #fff;
+    height: 33px;
+    -webkit-border-top-left-radius: 10px;
+    -moz-border-top-left-radius: 10px;
+    border-top-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-top-right-radius: 10px;
+    border-top-left-right: 10px
+}
+
+.task-alert .alert-body {
+    padding-left: 14px;
+    padding-top: 10px;
+    padding-right: 14px !important;
+    background: #fffde5;
+    -webkit-border-bottom-right-radius: 10px;
+    -moz-border-bottom-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    -moz-border-bottom-left-radius: 10px;
+    border-bottom-left-radius: 10px
+}
+
+.task-alert .alert-body .task-title {
+    font-size: 12px
+}
+
+.task-alert .alert-body .task-title .priority {
+    font-weight: 600;
+    color: red;
+    position: relative;
+    display: block;
+    float: left;
+    padding-right: 2px
+}
+
+.task-alert .alert-body .close-buttons {
+    padding-top: 14px;
+    padding-bottom: 9px;
+    background: #fffde5;
+    position: inherit;
+    display: block;
+    -webkit-border-bottom-right-radius: 10px;
+    -moz-border-bottom-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    -moz-border-bottom-left-radius: 10px;
+    border-bottom-left-radius: 10px
+}
+
+.task-alert .alert-body .close-buttons .accept-task {
+    float: right;
+    height: 23px;
+    line-height: 16px
+}
+
+.task-alert .alert-body .close-buttons .defer-task {
+    height: 23px;
+    line-height: 16px
+}
+
+.open > .dropdown-menu-tasks {
+    display: block
+}
+
+.dropdown-menu-tasks {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background: #fff;
+    margin-top: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176)
+}
+
+@media (min-width: 768px) {
+    .navbar-right .dropdown-menu-tasks {
+        right: 0;
+        left: auto
+    }
+}
+
+@media (max-width: 767px) {
+    .open .dropdown-menu-tasks {
+        position: static;
+        float: none;
+        width: auto;
+        border: 0;
+        margin-top: 6px
+    }
+}
+
+#dropdownTasks {
+    width: 330px;
+    background: #fff;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    padding: 0;
+    top: 37px;
+    right: 160px;
+    font-size: inherit;
+    line-height: 18px !important
+}
+
+#dropdownTasks .box {
+    border: none !important;
+    box-shadow: none;
+    margin: 0
+}
+
+.tasks_tooltip.open:after {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid #ccc;
+    content: "";
+    position: relative;
+    margin-right: -12px;
+    top: -32px;
+    left: 12px
+}
+
+#dropdownTasks .loader, #dashboardTasks .loader {
+    width: 100%;
+    height: 150px;
+    background: url(../../image/embed/ajax-loader-495b57de05bfe2135bb5f64dcddc0b17.gif) no-repeat 50% 50%
+}
+
+@media (max-width: 767px) {
+    #dropdownTasks {
+        width: 100%;
+        position: absolute;
+        top: 37px
+    }
+}
+
+#tasksBox.box {
+    padding: 0;
+    border: 1px solid #ddd
+}
+
+#tasksBox.box h2 {
+    margin: 0;
+    padding: 5px 1px 5px 10px;
+    background: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 24px;
+    font-weight: normal
+}
+
+#tasksBox.box h2 .new_task, #tasksBox.box h2 .delete {
+    margin-left: 2px
+}
+
+#tasksBox.box h2 .new_task:hover, #tasksBox.box h2 .delete:hover {
+    text-decoration: none !important
+}
+
+#tasksBox.box h2 .new_task {
+    padding-top: 9px;
+    padding-left: 10px;
+    padding-bottom: 9px;
+    padding-right: 5px
+}
+
+#tasksBox.box h2 .delete {
+    padding-top: 9px;
+    padding-left: 10px;
+    padding-bottom: 9px;
+    padding-right: 10px;
+    filter: alpha(opactiy=40);
+    -ms-filter: "alpha(opacity=#$trans * 100)";
+    -moz-opacity: .4;
+    -khtml-opacity: .4;
+    opacity: .4
+}
+
+#tasksBox.box h2 .delete.active, #tasksBox.box h2 .versum-pagination .delete.current, .versum-pagination #tasksBox.box h2 .delete.current {
+    filter: alpha(opactiy=100);
+    -ms-filter: "alpha(opacity=#$trans * 100)";
+    -moz-opacity: 1;
+    -khtml-opacity: 1;
+    opacity: 1
+}
+
+#tasksBox .complete-header {
+    background: #fafafa;
+    font-weight: bold;
+    color: #444;
+    width: 100%;
+    padding: 6px 0;
+    clear: both;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: -1px
+}
+
+#tasksBox .complete-header .icon, #tasksBox .complete-header .navbar .navbar-right .omnibox-wrapper:before, .navbar .navbar-right #tasksBox .complete-header .omnibox-wrapper:before, #tasksBox .complete-header .dashboard .change_box .change_value.increase strong:after, .dashboard .change_box .change_value.increase #tasksBox .complete-header strong:after, #tasksBox .complete-header .dashboard .change_box .change_value.decrease strong:after, .dashboard .change_box .change_value.decrease #tasksBox .complete-header strong:after {
+    margin: 0 8px
+}
+
+#tasksBox .todo {
+    max-height: 440px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch
+}
+
+#tasksBox .empty_description {
+    padding: 5px 15px 9px 15px;
+    color: #666;
+    line-height: 180%;
+    text-align: center
+}
+
+#tasksBox .not_author {
+    background: #f3ffff
+}
+
+#tasksBox .item {
+    clear: both;
+    position: relative;
+    margin: 0 5px;
+    height: 100%;
+    min-height: 43px;
+    width: calc(100% - 10px);
+    overflow: hidden;
+    border-top: 1px solid #ddd;
+    padding: 3px
+}
+
+#tasksBox .item .status .task_status {
+    width: 18px;
+    height: 16px;
+    margin-top: 5px
+}
+
+#tasksBox .item.focused .more, #tasksBox .item:hover .more {
+    float: right
+}
+
+#tasksBox .item.focused .more .editor-link, #tasksBox .item:hover .more .editor-link {
+    display: block;
+    cursor: pointer
+}
+
+#tasksBox .item.focused .task_sort_handle .handle, #tasksBox .item:hover .task_sort_handle .handle {
+    display: block
+}
+
+#tasksBox .item.focused:not(.complete_task) {
+    background: #fffedf !important
+}
+
+#tasksBox .item.focused:not(.complete_task) .task_input {
+    font-weight: normal !important;
+    font-style: italic
+}
+
+#tasksBox .item.new_task.focused .task_input {
+    color: #313140
+}
+
+#tasksBox .item.new_task {
+    border-top: 0;
+    margin-top: 4px
+}
+
+#tasksBox .item.new_task .task {
+    margin-top: 2px
+}
+
+#tasksBox .item.new_task .task_input {
+    height: 3em;
+    color: #909095;
+    font-weight: 600
+}
+
+#tasksBox .item.new_task .task_input:empty:not(:focus):before {
+    content: attr(placeholder)
+}
+
+#tasksBox .item.new_task .task_input::-moz-placeholder {
+    font-weight: 600;
+    opacity: 1
+}
+
+#tasksBox .item.new_task .task_input:-ms-input-placeholder {
+    font-weight: 600
+}
+
+#tasksBox .item.new_task .task_input::-webkit-input-placeholder {
+    font-weight: 600
+}
+
+#tasksBox .item.new_task .status .icon, #tasksBox .item.new_task .status .navbar .navbar-right .omnibox-wrapper:before, .navbar .navbar-right #tasksBox .item.new_task .status .omnibox-wrapper:before, #tasksBox .item.new_task .status .dashboard .change_box .change_value.increase strong:after, .dashboard .change_box .change_value.increase #tasksBox .item.new_task .status strong:after, #tasksBox .item.new_task .status .dashboard .change_box .change_value.decrease strong:after, .dashboard .change_box .change_value.decrease #tasksBox .item.new_task .status strong:after {
+    cursor: pointer
+}
+
+#tasksBox .item.complete_task {
+    background: #ebf0f3;
+    color: #999 !important
+}
+
+#tasksBox .item.complete_task .name input, #tasksBox .item.complete_task .priority, #tasksBox .item.complete_task .border-color a, #tasksBox .item.complete_task span {
+    color: #999 !important;
+    border-color: #aaa !important
+}
+
+#tasksBox .item.complete_task .status input {
+    filter: alpha(opactiy=25);
+    -ms-filter: "alpha(opacity=#$trans * 100)";
+    -moz-opacity: .25;
+    -khtml-opacity: .25;
+    opacity: .25
+}
+
+#tasksBox .item.fake_task_for_empty_list {
+    height: 20px;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+    border: 0
+}
+
+#tasksBox .item .task_sort_handle, #tasksBox .item .status, #tasksBox .item .task, #tasksBox .item .more {
+    padding: 3px;
+    display: block;
+    float: left;
+    height: 100%;
+    vertical-align: top
+}
+
+#tasksBox .item .task_sort_handle {
+    width: 10px;
+    padding-top: 5px;
+    padding-left: 0;
+    margin-right: 2px;
+    height: 22px
+}
+
+#tasksBox .item .task_sort_handle .handle {
+    cursor: pointer;
+    display: none;
+    width: 8px;
+    height: 22px;
+    background: url(../../image/dashboard_to_do_move-a6154df6dede54b1dccb9a81167a2899.png) repeat-y
+}
+
+#tasksBox .item .status {
+    width: 40px;
+    padding-left: 0
+}
+
+#tasksBox .item .task {
+    position: relative;
+    width: calc(100% - 68px);
+    padding-left: 0
+}
+
+#tasksBox .item .task .name {
+    padding: 3px 0
+}
+
+#tasksBox .item .task .task_input {
+    font-weight: 600;
+    line-height: 16px;
+    border: 0;
+    width: calc(100% - 20px);
+    display: block;
+    -moz-appearance: textfield-multiline
+}
+
+#tasksBox .item .task .task_input:focus {
+    outline: 0
+}
+
+#tasksBox .item .task .priority {
+    font-weight: 600;
+    color: red;
+    position: relative;
+    display: block;
+    float: left;
+    padding-right: 2px
+}
+
+#tasksBox .item .task .user {
+    position: relative;
+    float: right
+}
+
+#tasksBox .item .task .description, #tasksBox .item .task .alert_at, #tasksBox .item .task .author {
+    font-size: 10px
+}
+
+#tasksBox .item .task .description:hover, #tasksBox .item .task .alert_at_date:hover, #tasksBox .item .task .alert_at_time:hover {
+    cursor: pointer;
+    text-decoration: underline
+}
+
+#tasksBox .item .more {
+    width: 25px;
+    height: 32px
+}
+
+#tasksBox .item .more .editor-link {
+    display: none;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 20px
+}
+
+#tasksBox #taskEditor {
+    display: none
+}
+
+#tasksBox #taskEditor .simple-list .physical_task_complete {
+    margin-top: 15px
+}
+
+#tasksBox #taskEditor .simple-list .physical_task_complete #physical_task_complete {
+    margin-left: 55px
+}
+
+#tasksBox #taskEditor .simple-list .physical_task_complete label {
+    padding-left: 0 !important
+}
+
+#tasksBox #taskEditor .new_physical_task {
+    padding: 15px 10px
+}
+
+#tasksBox #taskEditor .physical_task_name .controls {
+    padding-left: 0;
+    display: block
+}
+
+#tasksBox #taskEditor .physical_task_name textarea {
+    width: 100%;
+    height: 28px;
+    font-weight: bold
+}
+
+#tasksBox #taskEditor #physical_task_description {
+    height: 46px
+}
+
+#tasksBox #taskEditor .physical_task_user_id.control-group, #tasksBox #taskEditor .physical_task_user_id.control-group, #tasksBox #taskEditor .physical_task_priority.control-group, #tasksBox #taskEditor .physical_task_description.control-group, #tasksBox #taskEditor .physical_task_alert.control-group {
+    margin-top: 15px
+}
+
+#tasksBox #taskEditor .physical_task_user_id .control-label, #tasksBox #taskEditor .physical_task_user_id .control-label, #tasksBox #taskEditor .physical_task_priority .control-label, #tasksBox #taskEditor .physical_task_description .control-label, #tasksBox #taskEditor .physical_task_alert .control-label {
+    width: 80px !important;
+    font-weight: normal;
+    text-transform: lowercase
+}
+
+#tasksBox #taskEditor .physical_task_user_id .controls, #tasksBox #taskEditor .physical_task_user_id .controls, #tasksBox #taskEditor .physical_task_priority .controls, #tasksBox #taskEditor .physical_task_description .controls, #tasksBox #taskEditor .physical_task_alert .controls {
+    padding-left: 0;
+    width: calc(100% - 80px) !important;
+    min-height: 28px
+}
+
+#tasksBox #taskEditor .physical_task_user_id .controls #physical_task_priority, #tasksBox #taskEditor .physical_task_user_id .controls #physical_task_priority, #tasksBox #taskEditor .physical_task_priority .controls #physical_task_priority, #tasksBox #taskEditor .physical_task_description .controls #physical_task_priority, #tasksBox #taskEditor .physical_task_alert .controls #physical_task_priority {
+    width: 120px
+}
+
+#tasksBox #taskEditor .physical_task_user_id .controls #physical_task_alert, #tasksBox #taskEditor .physical_task_user_id .controls #physical_task_alert, #tasksBox #taskEditor .physical_task_priority .controls #physical_task_alert, #tasksBox #taskEditor .physical_task_description .controls #physical_task_alert, #tasksBox #taskEditor .physical_task_alert .controls #physical_task_alert {
+    width: auto
+}
+
+#tasksBox #taskEditor .physical_task_user_id .controls .alert_at_container, #tasksBox #taskEditor .physical_task_user_id .controls .alert_at_container, #tasksBox #taskEditor .physical_task_priority .controls .alert_at_container, #tasksBox #taskEditor .physical_task_description .controls .alert_at_container, #tasksBox #taskEditor .physical_task_alert .controls .alert_at_container {
+    display: inline-block;
+    width: calc(100% - 18px);
+    line-height: 34px;
+    text-align: left;
+    float: right
+}
+
+#tasksBox #taskEditor .physical_task_user_id .controls .alert_at_container .time_selects, #tasksBox #taskEditor .physical_task_user_id .controls .alert_at_container .time_selects, #tasksBox #taskEditor .physical_task_priority .controls .alert_at_container .time_selects, #tasksBox #taskEditor .physical_task_description .controls .alert_at_container .time_selects, #tasksBox #taskEditor .physical_task_alert .controls .alert_at_container .time_selects {
+    white-space: nowrap;
+    display: inline-block
+}
+
+#tasksBox #taskEditor .physical_task_user_id .controls .alert_at_container #alert_at_date, #tasksBox #taskEditor .physical_task_user_id .controls .alert_at_container #alert_at_date, #tasksBox #taskEditor .physical_task_priority .controls .alert_at_container #alert_at_date, #tasksBox #taskEditor .physical_task_description .controls .alert_at_container #alert_at_date, #tasksBox #taskEditor .physical_task_alert .controls .alert_at_container #alert_at_date {
+    width: 80px
+}
+
+#tasksBox #taskEditor .physical_task_user_id .controls .alert_at_container #_alert_at_4i, #tasksBox #taskEditor .physical_task_user_id .controls .alert_at_container #_alert_at_5i, #tasksBox #taskEditor .physical_task_user_id .controls .alert_at_container #_alert_at_4i, #tasksBox #taskEditor .physical_task_user_id .controls .alert_at_container #_alert_at_5i, #tasksBox #taskEditor .physical_task_priority .controls .alert_at_container #_alert_at_4i, #tasksBox #taskEditor .physical_task_priority .controls .alert_at_container #_alert_at_5i, #tasksBox #taskEditor .physical_task_description .controls .alert_at_container #_alert_at_4i, #tasksBox #taskEditor .physical_task_description .controls .alert_at_container #_alert_at_5i, #tasksBox #taskEditor .physical_task_alert .controls .alert_at_container #_alert_at_4i, #tasksBox #taskEditor .physical_task_alert .controls .alert_at_container #_alert_at_5i {
+    vertical-align: middle;
+    width: 42px;
+    padding-left: 1px;
+    padding-right: 1px
+}
+
+#tasksBox #taskEditor .physical_task_user_id .controls textarea, #tasksBox #taskEditor .physical_task_user_id .controls input[type=text], #tasksBox #taskEditor .physical_task_user_id .controls select, #tasksBox #taskEditor .physical_task_user_id .controls textarea, #tasksBox #taskEditor .physical_task_user_id .controls input[type=text], #tasksBox #taskEditor .physical_task_user_id .controls select, #tasksBox #taskEditor .physical_task_priority .controls textarea, #tasksBox #taskEditor .physical_task_priority .controls input[type=text], #tasksBox #taskEditor .physical_task_priority .controls select, #tasksBox #taskEditor .physical_task_description .controls textarea, #tasksBox #taskEditor .physical_task_description .controls input[type=text], #tasksBox #taskEditor .physical_task_description .controls select, #tasksBox #taskEditor .physical_task_alert .controls textarea, #tasksBox #taskEditor .physical_task_alert .controls input[type=text], #tasksBox #taskEditor .physical_task_alert .controls select {
+    width: 100%;
+    line-height: 125%
+}
+
+#tasksBox #taskEditor .links {
+    border-top: 1px solid #ddd;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    background: #f9f9f9
+}
+
+#tasksBox #taskEditor .links .pull-right {
+    line-height: 30px
+}
+
+#tasksBox #taskEditor .links .pull-right .delete {
+    padding: 10px
+}
+
+#tasksBox #taskEditor .links .pull-right .back {
+    padding-right: 5px;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px
+}
+
+#tasksBox #taskEditor .links .pull-right a {
+    margin-left: 1px
+}
+
+/*!
+ * Bootstrap-select v1.6.0 (http://silviomoreto.github.io/bootstrap-select/)
+ *
+ * Copyright 2013-2014 bootstrap-select
+ * Licensed under MIT (https://github.com/silviomoreto/bootstrap-select/blob/master/LICENSE)
+ */
+.bootstrap-select {
+    width: 220px \0
+}
+
+.bootstrap-select > .btn, .versum-pagination .bootstrap-select > .page-link, .versum-pagination .bootstrap-select > .current, .versum-pagination .bootstrap-select > .ellipse, .ui-dialog-buttonset .bootstrap-select > button {
+    width: 100%;
+    padding-right: 25px
+}
+
+.error .bootstrap-select .btn, .error .bootstrap-select .versum-pagination .page-link, .versum-pagination .error .bootstrap-select .page-link, .error .bootstrap-select .versum-pagination .current, .versum-pagination .error .bootstrap-select .current, .error .bootstrap-select .versum-pagination .ellipse, .versum-pagination .error .bootstrap-select .ellipse, .error .bootstrap-select .ui-dialog-buttonset button, .ui-dialog-buttonset .error .bootstrap-select button {
+    border: 1px solid #b94a48
+}
+
+.control-group.error .bootstrap-select .dropdown-toggle {
+    border-color: #b94a48
+}
+
+.bootstrap-select.fit-width {
+    width: auto !important
+}
+
+.bootstrap-select:not([class*="span"]):not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+    width: 220px
+}
+
+.bootstrap-select .btn:focus, .bootstrap-select .versum-pagination .page-link:focus, .versum-pagination .bootstrap-select .page-link:focus, .bootstrap-select .versum-pagination .current:focus, .versum-pagination .bootstrap-select .current:focus, .bootstrap-select .versum-pagination .ellipse:focus, .versum-pagination .bootstrap-select .ellipse:focus, .bootstrap-select .ui-dialog-buttonset button:focus, .ui-dialog-buttonset .bootstrap-select button:focus {
+    outline: thin dotted #333 !important;
+    outline: 5px auto -webkit-focus-ring-color !important;
+    outline-offset: -2px
+}
+
+.bootstrap-select.form-control {
+    margin-bottom: 0;
+    padding: 0;
+    border: 0
+}
+
+.bootstrap-select.form-control:not([class*="span"]):not([class*="col-"]) {
+    width: 100%
+}
+
+.bootstrap-select.btn-group:not(.input-group-btn), .bootstrap-select.btn-group[class*="span"], .bootstrap-select.btn-group[class*="col-"] {
+    float: none;
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-left: 0
+}
+
+.bootstrap-select.btn-group.pull-right, .bootstrap-select.btn-group[class*="span"].pull-right, .bootstrap-select.btn-group[class*="col-"].pull-right, .row-fluid .bootstrap-select.btn-group[class*="span"].pull-right, .row-fluid .bootstrap-select.btn-group[class*="col-"].pull-right {
+    float: right
+}
+
+.form-search .bootstrap-select.btn-group, .form-inline .bootstrap-select.btn-group, .form-horizontal .bootstrap-select.btn-group, .form-group .bootstrap-select.btn-group {
+    margin-bottom: 0
+}
+
+.form-inline .bootstrap-select.btn-group .form-control {
+    width: 100%
+}
+
+.input-append .bootstrap-select.btn-group {
+    margin-left: -1px
+}
+
+.input-prepend .bootstrap-select.btn-group {
+    margin-right: -1px
+}
+
+.bootstrap-select.btn-group > .disabled {
+    cursor: not-allowed
+}
+
+.bootstrap-select.btn-group > .disabled:focus {
+    outline: none !important
+}
+
+.bootstrap-select.btn-group .btn .filter-option, .bootstrap-select.btn-group .versum-pagination .page-link .filter-option, .versum-pagination .bootstrap-select.btn-group .page-link .filter-option, .bootstrap-select.btn-group .versum-pagination .current .filter-option, .versum-pagination .bootstrap-select.btn-group .current .filter-option, .bootstrap-select.btn-group .versum-pagination .ellipse .filter-option, .versum-pagination .bootstrap-select.btn-group .ellipse .filter-option, .bootstrap-select.btn-group .ui-dialog-buttonset button .filter-option, .ui-dialog-buttonset .bootstrap-select.btn-group button .filter-option {
+    display: inline-block;
+    overflow: hidden;
+    width: 100%;
+    text-align: left
+}
+
+.bootstrap-select.btn-group .btn .caret, .bootstrap-select.btn-group .versum-pagination .page-link .caret, .versum-pagination .bootstrap-select.btn-group .page-link .caret, .bootstrap-select.btn-group .versum-pagination .current .caret, .versum-pagination .bootstrap-select.btn-group .current .caret, .bootstrap-select.btn-group .versum-pagination .ellipse .caret, .versum-pagination .bootstrap-select.btn-group .ellipse .caret, .bootstrap-select.btn-group .ui-dialog-buttonset button .caret, .ui-dialog-buttonset .bootstrap-select.btn-group button .caret {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    margin-top: -2px;
+    vertical-align: middle
+}
+
+.bootstrap-select.btn-group[class*="span"] .btn, .bootstrap-select.btn-group[class*="span"] .versum-pagination .page-link, .versum-pagination .bootstrap-select.btn-group[class*="span"] .page-link, .bootstrap-select.btn-group[class*="span"] .versum-pagination .current, .versum-pagination .bootstrap-select.btn-group[class*="span"] .current, .bootstrap-select.btn-group[class*="span"] .versum-pagination .ellipse, .versum-pagination .bootstrap-select.btn-group[class*="span"] .ellipse, .bootstrap-select.btn-group[class*="span"] .ui-dialog-buttonset button, .ui-dialog-buttonset .bootstrap-select.btn-group[class*="span"] button, .bootstrap-select.btn-group[class*="col-"] .btn, .bootstrap-select.btn-group[class*="col-"] .versum-pagination .page-link, .versum-pagination .bootstrap-select.btn-group[class*="col-"] .page-link, .bootstrap-select.btn-group[class*="col-"] .versum-pagination .current, .versum-pagination .bootstrap-select.btn-group[class*="col-"] .current, .bootstrap-select.btn-group[class*="col-"] .versum-pagination .ellipse, .versum-pagination .bootstrap-select.btn-group[class*="col-"] .ellipse, .bootstrap-select.btn-group[class*="col-"] .ui-dialog-buttonset button, .ui-dialog-buttonset .bootstrap-select.btn-group[class*="col-"] button {
+    width: 100%
+}
+
+.bootstrap-select.btn-group .dropdown-menu {
+    min-width: 100%;
+    z-index: 2000;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.bootstrap-select.btn-group .dropdown-menu.inner {
+    position: static;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    padding: 0 !important
+}
+
+.bootstrap-select.btn-group .dropdown-menu dt {
+    display: block;
+    padding: 3px 20px;
+    cursor: default
+}
+
+.bootstrap-select.btn-group .dropdown-menu li {
+    position: relative
+}
+
+.bootstrap-select.btn-group .dropdown-menu li:not(.disabled) > a:hover small, .bootstrap-select.btn-group .dropdown-menu li:not(.disabled) > a:focus small, .bootstrap-select.btn-group .dropdown-menu li.active:not(.disabled) > a small, .bootstrap-select.btn-group .dropdown-menu .versum-pagination li.current:not(.disabled) > a small, .versum-pagination .bootstrap-select.btn-group .dropdown-menu li.current:not(.disabled) > a small {
+    color: #64b1d8;
+    color: rgba(100, 177, 216, 0.4)
+}
+
+.bootstrap-select.btn-group .dropdown-menu li > dt small {
+    font-weight: normal
+}
+
+.bootstrap-select.btn-group .dropdown-menu li.disabled > a {
+    cursor: not-allowed
+}
+
+.bootstrap-select.btn-group .dropdown-menu li > a {
+    cursor: pointer
+}
+
+.bootstrap-select.btn-group .dropdown-menu li > a.opt {
+    position: relative;
+    padding-left: 35px
+}
+
+.bootstrap-select.btn-group .dropdown-menu li a i.check-mark {
+    display: none
+}
+
+.bootstrap-select.btn-group .dropdown-menu li a span.text {
+    display: inline-block
+}
+
+.bootstrap-select.btn-group .dropdown-menu li small {
+    padding-left: .5em
+}
+
+.bootstrap-select.btn-group .dropdown-menu .notify {
+    position: absolute;
+    bottom: 5px;
+    width: 96%;
+    margin: 0 2%;
+    min-height: 26px;
+    padding: 3px 5px;
+    background: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    pointer-events: none;
+    opacity: .9;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.bootstrap-select.btn-group .div-contain {
+    overflow: hidden
+}
+
+.bootstrap-select.btn-group .no-results {
+    padding: 3px;
+    background: #f5f5f5;
+    margin: 0 5px
+}
+
+.bootstrap-select.btn-group.fit-width .btn .filter-option, .bootstrap-select.btn-group.fit-width .versum-pagination .page-link .filter-option, .versum-pagination .bootstrap-select.btn-group.fit-width .page-link .filter-option, .bootstrap-select.btn-group.fit-width .versum-pagination .current .filter-option, .versum-pagination .bootstrap-select.btn-group.fit-width .current .filter-option, .bootstrap-select.btn-group.fit-width .versum-pagination .ellipse .filter-option, .versum-pagination .bootstrap-select.btn-group.fit-width .ellipse .filter-option, .bootstrap-select.btn-group.fit-width .ui-dialog-buttonset button .filter-option, .ui-dialog-buttonset .bootstrap-select.btn-group.fit-width button .filter-option {
+    position: static
+}
+
+.bootstrap-select.btn-group.fit-width .btn .caret, .bootstrap-select.btn-group.fit-width .versum-pagination .page-link .caret, .versum-pagination .bootstrap-select.btn-group.fit-width .page-link .caret, .bootstrap-select.btn-group.fit-width .versum-pagination .current .caret, .versum-pagination .bootstrap-select.btn-group.fit-width .current .caret, .bootstrap-select.btn-group.fit-width .versum-pagination .ellipse .caret, .versum-pagination .bootstrap-select.btn-group.fit-width .ellipse .caret, .bootstrap-select.btn-group.fit-width .ui-dialog-buttonset button .caret, .ui-dialog-buttonset .bootstrap-select.btn-group.fit-width button .caret {
+    position: static;
+    top: auto;
+    margin-top: -1px
+}
+
+.bootstrap-select.btn-group.show-tick .dropdown-menu li.selected a i.check-mark {
+    position: absolute;
+    display: inline-block;
+    right: 15px;
+    margin-top: 2.5px
+}
+
+.bootstrap-select.btn-group.show-tick .dropdown-menu li a span.text {
+    margin-right: 34px
+}
+
+.bootstrap-select.show-menu-arrow.open > .btn, .versum-pagination .bootstrap-select.show-menu-arrow.open > .page-link, .versum-pagination .bootstrap-select.show-menu-arrow.open > .current, .versum-pagination .bootstrap-select.show-menu-arrow.open > .ellipse, .ui-dialog-buttonset .bootstrap-select.show-menu-arrow.open > button {
+    z-index: 2051
+}
+
+.bootstrap-select.show-menu-arrow .dropdown-toggle:before {
+    content: '';
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom-width: 7px;
+    border-bottom-style: solid;
+    border-bottom-color: #ccc;
+    border-bottom-color: rgba(204, 204, 204, 0.2);
+    position: absolute;
+    bottom: -4px;
+    left: 9px;
+    display: none
+}
+
+.bootstrap-select.show-menu-arrow .dropdown-toggle:after {
+    content: '';
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid white;
+    position: absolute;
+    bottom: -4px;
+    left: 10px;
+    display: none
+}
+
+.bootstrap-select.show-menu-arrow.dropup .dropdown-toggle:before {
+    bottom: auto;
+    top: -3px;
+    border-bottom: 0;
+    border-top-width: 7px;
+    border-top-style: solid;
+    border-top-color: #ccc;
+    border-top-color: rgba(204, 204, 204, 0.2)
+}
+
+.bootstrap-select.show-menu-arrow.dropup .dropdown-toggle:after {
+    bottom: auto;
+    top: -3px;
+    border-top: 6px solid white;
+    border-bottom: 0
+}
+
+.bootstrap-select.show-menu-arrow.pull-right .dropdown-toggle:before {
+    right: 12px;
+    left: auto
+}
+
+.bootstrap-select.show-menu-arrow.pull-right .dropdown-toggle:after {
+    right: 13px;
+    left: auto
+}
+
+.bootstrap-select.show-menu-arrow.open > .dropdown-toggle:before, .bootstrap-select.show-menu-arrow.open > .dropdown-toggle:after {
+    display: block
+}
+
+.bootstrap-select-searchbox, .bootstrap-select .bs-actionsbox {
+    padding: 4px 8px
+}
+
+.bootstrap-select .bs-actionsbox {
+    float: left;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.bootstrap-select .bs-actionsbox .btn-group button {
+    width: 50%
+}
+
+.bootstrap-select-searchbox + .bs-actionsbox {
+    padding: 0 8px 4px
+}
+
+.bootstrap-select-searchbox input, .bootstrap-select-searchbox .form-control {
+    margin-bottom: 0;
+    width: 100%
+}
+
+/** INT TELEPHONE INPUT **/
+.intl-tel-input {
+    position: relative;
+    display: inline-block
+}
+
+.intl-tel-input * {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box
+}
+
+.intl-tel-input .hide {
+    display: none
+}
+
+.intl-tel-input .v-hide {
+    visibility: hidden
+}
+
+.intl-tel-input input, .intl-tel-input input[type=text], .intl-tel-input input[type=tel] {
+    position: relative;
+    z-index: 0;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-left: 48px;
+    margin-left: 0;
+    transition: background-color 100ms ease-out
+}
+
+.intl-tel-input input.iti-invalid-key {
+    transition: background-color 0;
+    background-color: #ffc7c7
+}
+
+.intl-tel-input .flag-dropdown {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    padding: 1px
+}
+
+.intl-tel-input .flag-dropdown:hover {
+    cursor: pointer
+}
+
+.intl-tel-input .flag-dropdown:hover .selected-flag {
+    background-color: rgba(0, 0, 0, 0.05)
+}
+
+.intl-tel-input input[disabled] + .flag-dropdown:hover, .intl-tel-input input[readonly] + .flag-dropdown:hover {
+    cursor: default
+}
+
+.intl-tel-input input[disabled] + .flag-dropdown:hover .selected-flag, .intl-tel-input input[readonly] + .flag-dropdown:hover .selected-flag {
+    background-color: transparent
+}
+
+.intl-tel-input .selected-flag {
+    z-index: 1;
+    position: relative;
+    width: 42px;
+    height: 100%;
+    padding: 0 0 0 8px
+}
+
+.intl-tel-input .selected-flag .iti-flag {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto
+}
+
+.intl-tel-input .selected-flag .arrow {
+    position: absolute;
+    top: 50%;
+    margin-top: -2px;
+    right: 4px;
+    width: 0;
+    height: 0;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-top: 4px solid #555
+}
+
+.intl-tel-input .selected-flag .arrow.up {
+    border-top: 0;
+    border-bottom: 4px solid #555
+}
+
+.intl-tel-input .country-list {
+    list-style: none;
+    position: absolute;
+    z-index: 2;
+    padding: 0;
+    margin: 0 0 0 -1px;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    background-color: white;
+    border: 1px solid #CCC;
+    white-space: nowrap;
+    max-height: 200px;
+    overflow-y: scroll
+}
+
+.intl-tel-input .country-list .flag {
+    display: inline-block;
+    width: 20px
+}
+
+@media (max-width: 500px) {
+    .intl-tel-input .country-list {
+        white-space: normal
+    }
+}
+
+.intl-tel-input .country-list .divider {
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #CCC
+}
+
+.intl-tel-input .country-list .country {
+    padding: 5px 10px
+}
+
+.intl-tel-input .country-list .country .dial-code {
+    color: #999
+}
+
+.intl-tel-input .country-list .country.highlight {
+    background-color: rgba(0, 0, 0, 0.05)
+}
+
+.intl-tel-input .country-list .flag, .intl-tel-input .country-list .country-name, .intl-tel-input .country-list .dial-code {
+    vertical-align: middle
+}
+
+.intl-tel-input .country-list .flag, .intl-tel-input .country-list .country-name {
+    margin-right: 6px
+}
+
+.intl-tel-input select {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 42px;
+    height: 100%;
+    opacity: 0
+}
+
+.iti-flag {
+    width: 20px
+}
+
+.iti-flag.be {
+    width: 18px
+}
+
+.iti-flag.ch {
+    width: 15px
+}
+
+.iti-flag.mc {
+    width: 19px
+}
+
+.iti-flag.ne {
+    width: 18px
+}
+
+.iti-flag.np {
+    width: 13px
+}
+
+.iti-flag.va {
+    width: 15px
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+    .iti-flag {
+        background-size: 5630px 15px
+    }
+}
+
+.iti-flag.ac {
+    height: 10px;
+    background-position: 0 0
+}
+
+.iti-flag.ad {
+    height: 14px;
+    background-position: -22px 0
+}
+
+.iti-flag.ae {
+    height: 10px;
+    background-position: -44px 0
+}
+
+.iti-flag.af {
+    height: 14px;
+    background-position: -66px 0
+}
+
+.iti-flag.ag {
+    height: 14px;
+    background-position: -88px 0
+}
+
+.iti-flag.ai {
+    height: 10px;
+    background-position: -110px 0
+}
+
+.iti-flag.al {
+    height: 15px;
+    background-position: -132px 0
+}
+
+.iti-flag.am {
+    height: 10px;
+    background-position: -154px 0
+}
+
+.iti-flag.ao {
+    height: 14px;
+    background-position: -176px 0
+}
+
+.iti-flag.aq {
+    height: 14px;
+    background-position: -198px 0
+}
+
+.iti-flag.ar {
+    height: 13px;
+    background-position: -220px 0
+}
+
+.iti-flag.as {
+    height: 10px;
+    background-position: -242px 0
+}
+
+.iti-flag.at {
+    height: 14px;
+    background-position: -264px 0
+}
+
+.iti-flag.au {
+    height: 10px;
+    background-position: -286px 0
+}
+
+.iti-flag.aw {
+    height: 14px;
+    background-position: -308px 0
+}
+
+.iti-flag.ax {
+    height: 13px;
+    background-position: -330px 0
+}
+
+.iti-flag.az {
+    height: 10px;
+    background-position: -352px 0
+}
+
+.iti-flag.ba {
+    height: 10px;
+    background-position: -374px 0
+}
+
+.iti-flag.bb {
+    height: 14px;
+    background-position: -396px 0
+}
+
+.iti-flag.bd {
+    height: 12px;
+    background-position: -418px 0
+}
+
+.iti-flag.be {
+    height: 15px;
+    background-position: -440px 0
+}
+
+.iti-flag.bf {
+    height: 14px;
+    background-position: -460px 0
+}
+
+.iti-flag.bg {
+    height: 12px;
+    background-position: -482px 0
+}
+
+.iti-flag.bh {
+    height: 12px;
+    background-position: -504px 0
+}
+
+.iti-flag.bi {
+    height: 12px;
+    background-position: -526px 0
+}
+
+.iti-flag.bj {
+    height: 14px;
+    background-position: -548px 0
+}
+
+.iti-flag.bl {
+    height: 14px;
+    background-position: -570px 0
+}
+
+.iti-flag.bm {
+    height: 10px;
+    background-position: -592px 0
+}
+
+.iti-flag.bn {
+    height: 10px;
+    background-position: -614px 0
+}
+
+.iti-flag.bo {
+    height: 14px;
+    background-position: -636px 0
+}
+
+.iti-flag.bq {
+    height: 14px;
+    background-position: -658px 0
+}
+
+.iti-flag.br {
+    height: 14px;
+    background-position: -680px 0
+}
+
+.iti-flag.bs {
+    height: 10px;
+    background-position: -702px 0
+}
+
+.iti-flag.bt {
+    height: 14px;
+    background-position: -724px 0
+}
+
+.iti-flag.bv {
+    height: 15px;
+    background-position: -746px 0
+}
+
+.iti-flag.bw {
+    height: 14px;
+    background-position: -768px 0
+}
+
+.iti-flag.by {
+    height: 10px;
+    background-position: -790px 0
+}
+
+.iti-flag.bz {
+    height: 14px;
+    background-position: -812px 0
+}
+
+.iti-flag.ca {
+    height: 10px;
+    background-position: -834px 0
+}
+
+.iti-flag.cc {
+    height: 10px;
+    background-position: -856px 0
+}
+
+.iti-flag.cd {
+    height: 15px;
+    background-position: -878px 0
+}
+
+.iti-flag.cf {
+    height: 14px;
+    background-position: -900px 0
+}
+
+.iti-flag.cg {
+    height: 14px;
+    background-position: -922px 0
+}
+
+.iti-flag.ch {
+    height: 15px;
+    background-position: -944px 0
+}
+
+.iti-flag.ci {
+    height: 14px;
+    background-position: -961px 0
+}
+
+.iti-flag.ck {
+    height: 10px;
+    background-position: -983px 0
+}
+
+.iti-flag.cl {
+    height: 14px;
+    background-position: -1005px 0
+}
+
+.iti-flag.cm {
+    height: 14px;
+    background-position: -1027px 0
+}
+
+.iti-flag.cn {
+    height: 14px;
+    background-position: -1049px 0
+}
+
+.iti-flag.co {
+    height: 14px;
+    background-position: -1071px 0
+}
+
+.iti-flag.cp {
+    height: 14px;
+    background-position: -1093px 0
+}
+
+.iti-flag.cr {
+    height: 12px;
+    background-position: -1115px 0
+}
+
+.iti-flag.cu {
+    height: 10px;
+    background-position: -1137px 0
+}
+
+.iti-flag.cv {
+    height: 12px;
+    background-position: -1159px 0
+}
+
+.iti-flag.cw {
+    height: 14px;
+    background-position: -1181px 0
+}
+
+.iti-flag.cx {
+    height: 10px;
+    background-position: -1203px 0
+}
+
+.iti-flag.cy {
+    height: 14px;
+    background-position: -1225px 0
+}
+
+.iti-flag.cz {
+    height: 14px;
+    background-position: -1247px 0
+}
+
+.iti-flag.de {
+    height: 12px;
+    background-position: -1269px 0
+}
+
+.iti-flag.dg {
+    height: 10px;
+    background-position: -1291px 0
+}
+
+.iti-flag.dj {
+    height: 14px;
+    background-position: -1313px 0
+}
+
+.iti-flag.dk {
+    height: 15px;
+    background-position: -1335px 0
+}
+
+.iti-flag.dm {
+    height: 10px;
+    background-position: -1357px 0
+}
+
+.iti-flag.do {
+    height: 13px;
+    background-position: -1379px 0
+}
+
+.iti-flag.dz {
+    height: 14px;
+    background-position: -1401px 0
+}
+
+.iti-flag.ea {
+    height: 14px;
+    background-position: -1423px 0
+}
+
+.iti-flag.ec {
+    height: 14px;
+    background-position: -1445px 0
+}
+
+.iti-flag.ee {
+    height: 13px;
+    background-position: -1467px 0
+}
+
+.iti-flag.eg {
+    height: 14px;
+    background-position: -1489px 0
+}
+
+.iti-flag.eh {
+    height: 10px;
+    background-position: -1511px 0
+}
+
+.iti-flag.er {
+    height: 10px;
+    background-position: -1533px 0
+}
+
+.iti-flag.es {
+    height: 14px;
+    background-position: -1555px 0
+}
+
+.iti-flag.et {
+    height: 10px;
+    background-position: -1577px 0
+}
+
+.iti-flag.eu {
+    height: 14px;
+    background-position: -1599px 0
+}
+
+.iti-flag.fi {
+    height: 12px;
+    background-position: -1621px 0
+}
+
+.iti-flag.fj {
+    height: 10px;
+    background-position: -1643px 0
+}
+
+.iti-flag.fk {
+    height: 10px;
+    background-position: -1665px 0
+}
+
+.iti-flag.fm {
+    height: 11px;
+    background-position: -1687px 0
+}
+
+.iti-flag.fo {
+    height: 15px;
+    background-position: -1709px 0
+}
+
+.iti-flag.fr {
+    height: 14px;
+    background-position: -1731px 0
+}
+
+.iti-flag.ga {
+    height: 15px;
+    background-position: -1753px 0
+}
+
+.iti-flag.gb {
+    height: 10px;
+    background-position: -1775px 0
+}
+
+.iti-flag.gd {
+    height: 12px;
+    background-position: -1797px 0
+}
+
+.iti-flag.ge {
+    height: 14px;
+    background-position: -1819px 0
+}
+
+.iti-flag.gf {
+    height: 14px;
+    background-position: -1841px 0
+}
+
+.iti-flag.gg {
+    height: 14px;
+    background-position: -1863px 0
+}
+
+.iti-flag.gh {
+    height: 14px;
+    background-position: -1885px 0
+}
+
+.iti-flag.gi {
+    height: 10px;
+    background-position: -1907px 0
+}
+
+.iti-flag.gl {
+    height: 14px;
+    background-position: -1929px 0
+}
+
+.iti-flag.gm {
+    height: 14px;
+    background-position: -1951px 0
+}
+
+.iti-flag.gn {
+    height: 14px;
+    background-position: -1973px 0
+}
+
+.iti-flag.gp {
+    height: 14px;
+    background-position: -1995px 0
+}
+
+.iti-flag.gq {
+    height: 14px;
+    background-position: -2017px 0
+}
+
+.iti-flag.gr {
+    height: 14px;
+    background-position: -2039px 0
+}
+
+.iti-flag.gs {
+    height: 10px;
+    background-position: -2061px 0
+}
+
+.iti-flag.gt {
+    height: 13px;
+    background-position: -2083px 0
+}
+
+.iti-flag.gu {
+    height: 11px;
+    background-position: -2105px 0
+}
+
+.iti-flag.gw {
+    height: 10px;
+    background-position: -2127px 0
+}
+
+.iti-flag.gy {
+    height: 12px;
+    background-position: -2149px 0
+}
+
+.iti-flag.hk {
+    height: 14px;
+    background-position: -2171px 0
+}
+
+.iti-flag.hm {
+    height: 10px;
+    background-position: -2193px 0
+}
+
+.iti-flag.hn {
+    height: 10px;
+    background-position: -2215px 0
+}
+
+.iti-flag.hr {
+    height: 10px;
+    background-position: -2237px 0
+}
+
+.iti-flag.ht {
+    height: 12px;
+    background-position: -2259px 0
+}
+
+.iti-flag.hu {
+    height: 10px;
+    background-position: -2281px 0
+}
+
+.iti-flag.ic {
+    height: 14px;
+    background-position: -2303px 0
+}
+
+.iti-flag.id {
+    height: 14px;
+    background-position: -2325px 0
+}
+
+.iti-flag.ie {
+    height: 10px;
+    background-position: -2347px 0
+}
+
+.iti-flag.il {
+    height: 15px;
+    background-position: -2369px 0
+}
+
+.iti-flag.im {
+    height: 10px;
+    background-position: -2391px 0
+}
+
+.iti-flag.in {
+    height: 14px;
+    background-position: -2413px 0
+}
+
+.iti-flag.io {
+    height: 10px;
+    background-position: -2435px 0
+}
+
+.iti-flag.iq {
+    height: 14px;
+    background-position: -2457px 0
+}
+
+.iti-flag.ir {
+    height: 12px;
+    background-position: -2479px 0
+}
+
+.iti-flag.is {
+    height: 15px;
+    background-position: -2501px 0
+}
+
+.iti-flag.it {
+    height: 14px;
+    background-position: -2523px 0
+}
+
+.iti-flag.je {
+    height: 12px;
+    background-position: -2545px 0
+}
+
+.iti-flag.jm {
+    height: 10px;
+    background-position: -2567px 0
+}
+
+.iti-flag.jo {
+    height: 10px;
+    background-position: -2589px 0
+}
+
+.iti-flag.jp {
+    height: 14px;
+    background-position: -2611px 0
+}
+
+.iti-flag.ke {
+    height: 14px;
+    background-position: -2633px 0
+}
+
+.iti-flag.kg {
+    height: 12px;
+    background-position: -2655px 0
+}
+
+.iti-flag.kh {
+    height: 13px;
+    background-position: -2677px 0
+}
+
+.iti-flag.ki {
+    height: 10px;
+    background-position: -2699px 0
+}
+
+.iti-flag.km {
+    height: 12px;
+    background-position: -2721px 0
+}
+
+.iti-flag.kn {
+    height: 14px;
+    background-position: -2743px 0
+}
+
+.iti-flag.kp {
+    height: 10px;
+    background-position: -2765px 0
+}
+
+.iti-flag.kr {
+    height: 14px;
+    background-position: -2787px 0
+}
+
+.iti-flag.kw {
+    height: 10px;
+    background-position: -2809px 0
+}
+
+.iti-flag.ky {
+    height: 10px;
+    background-position: -2831px 0
+}
+
+.iti-flag.kz {
+    height: 10px;
+    background-position: -2853px 0
+}
+
+.iti-flag.la {
+    height: 14px;
+    background-position: -2875px 0
+}
+
+.iti-flag.lb {
+    height: 14px;
+    background-position: -2897px 0
+}
+
+.iti-flag.lc {
+    height: 10px;
+    background-position: -2919px 0
+}
+
+.iti-flag.li {
+    height: 12px;
+    background-position: -2941px 0
+}
+
+.iti-flag.lk {
+    height: 10px;
+    background-position: -2963px 0
+}
+
+.iti-flag.lr {
+    height: 11px;
+    background-position: -2985px 0
+}
+
+.iti-flag.ls {
+    height: 14px;
+    background-position: -3007px 0
+}
+
+.iti-flag.lt {
+    height: 12px;
+    background-position: -3029px 0
+}
+
+.iti-flag.lu {
+    height: 12px;
+    background-position: -3051px 0
+}
+
+.iti-flag.lv {
+    height: 10px;
+    background-position: -3073px 0
+}
+
+.iti-flag.ly {
+    height: 10px;
+    background-position: -3095px 0
+}
+
+.iti-flag.ma {
+    height: 14px;
+    background-position: -3117px 0
+}
+
+.iti-flag.mc {
+    height: 15px;
+    background-position: -3139px 0
+}
+
+.iti-flag.md {
+    height: 10px;
+    background-position: -3160px 0
+}
+
+.iti-flag.me {
+    height: 10px;
+    background-position: -3182px 0
+}
+
+.iti-flag.mf {
+    height: 14px;
+    background-position: -3204px 0
+}
+
+.iti-flag.mg {
+    height: 14px;
+    background-position: -3226px 0
+}
+
+.iti-flag.mh {
+    height: 11px;
+    background-position: -3248px 0
+}
+
+.iti-flag.mk {
+    height: 10px;
+    background-position: -3270px 0
+}
+
+.iti-flag.ml {
+    height: 14px;
+    background-position: -3292px 0
+}
+
+.iti-flag.mm {
+    height: 14px;
+    background-position: -3314px 0
+}
+
+.iti-flag.mn {
+    height: 10px;
+    background-position: -3336px 0
+}
+
+.iti-flag.mo {
+    height: 14px;
+    background-position: -3358px 0
+}
+
+.iti-flag.mp {
+    height: 10px;
+    background-position: -3380px 0
+}
+
+.iti-flag.mq {
+    height: 14px;
+    background-position: -3402px 0
+}
+
+.iti-flag.mr {
+    height: 14px;
+    background-position: -3424px 0
+}
+
+.iti-flag.ms {
+    height: 10px;
+    background-position: -3446px 0
+}
+
+.iti-flag.mt {
+    height: 14px;
+    background-position: -3468px 0
+}
+
+.iti-flag.mu {
+    height: 14px;
+    background-position: -3490px 0
+}
+
+.iti-flag.mv {
+    height: 14px;
+    background-position: -3512px 0
+}
+
+.iti-flag.mw {
+    height: 14px;
+    background-position: -3534px 0
+}
+
+.iti-flag.mx {
+    height: 12px;
+    background-position: -3556px 0
+}
+
+.iti-flag.my {
+    height: 10px;
+    background-position: -3578px 0
+}
+
+.iti-flag.mz {
+    height: 14px;
+    background-position: -3600px 0
+}
+
+.iti-flag.na {
+    height: 14px;
+    background-position: -3622px 0
+}
+
+.iti-flag.nc {
+    height: 10px;
+    background-position: -3644px 0
+}
+
+.iti-flag.ne {
+    height: 15px;
+    background-position: -3666px 0
+}
+
+.iti-flag.nf {
+    height: 10px;
+    background-position: -3686px 0
+}
+
+.iti-flag.ng {
+    height: 10px;
+    background-position: -3708px 0
+}
+
+.iti-flag.ni {
+    height: 12px;
+    background-position: -3730px 0
+}
+
+.iti-flag.nl {
+    height: 14px;
+    background-position: -3752px 0
+}
+
+.iti-flag.no {
+    height: 15px;
+    background-position: -3774px 0
+}
+
+.iti-flag.np {
+    height: 15px;
+    background-position: -3796px 0
+}
+
+.iti-flag.nr {
+    height: 10px;
+    background-position: -3811px 0
+}
+
+.iti-flag.nu {
+    height: 10px;
+    background-position: -3833px 0
+}
+
+.iti-flag.nz {
+    height: 10px;
+    background-position: -3855px 0
+}
+
+.iti-flag.om {
+    height: 10px;
+    background-position: -3877px 0
+}
+
+.iti-flag.pa {
+    height: 14px;
+    background-position: -3899px 0
+}
+
+.iti-flag.pe {
+    height: 14px;
+    background-position: -3921px 0
+}
+
+.iti-flag.pf {
+    height: 14px;
+    background-position: -3943px 0
+}
+
+.iti-flag.pg {
+    height: 15px;
+    background-position: -3965px 0
+}
+
+.iti-flag.ph {
+    height: 10px;
+    background-position: -3987px 0
+}
+
+.iti-flag.pk {
+    height: 14px;
+    background-position: -4009px 0
+}
+
+.iti-flag.pl {
+    height: 13px;
+    background-position: -4031px 0
+}
+
+.iti-flag.pm {
+    height: 14px;
+    background-position: -4053px 0
+}
+
+.iti-flag.pn {
+    height: 10px;
+    background-position: -4075px 0
+}
+
+.iti-flag.pr {
+    height: 14px;
+    background-position: -4097px 0
+}
+
+.iti-flag.ps {
+    height: 10px;
+    background-position: -4119px 0
+}
+
+.iti-flag.pt {
+    height: 14px;
+    background-position: -4141px 0
+}
+
+.iti-flag.pw {
+    height: 13px;
+    background-position: -4163px 0
+}
+
+.iti-flag.py {
+    height: 11px;
+    background-position: -4185px 0
+}
+
+.iti-flag.qa {
+    height: 8px;
+    background-position: -4207px 0
+}
+
+.iti-flag.re {
+    height: 14px;
+    background-position: -4229px 0
+}
+
+.iti-flag.ro {
+    height: 14px;
+    background-position: -4251px 0
+}
+
+.iti-flag.rs {
+    height: 14px;
+    background-position: -4273px 0
+}
+
+.iti-flag.ru {
+    height: 14px;
+    background-position: -4295px 0
+}
+
+.iti-flag.rw {
+    height: 14px;
+    background-position: -4317px 0
+}
+
+.iti-flag.sa {
+    height: 14px;
+    background-position: -4339px 0
+}
+
+.iti-flag.sb {
+    height: 10px;
+    background-position: -4361px 0
+}
+
+.iti-flag.sc {
+    height: 10px;
+    background-position: -4383px 0
+}
+
+.iti-flag.sd {
+    height: 10px;
+    background-position: -4405px 0
+}
+
+.iti-flag.se {
+    height: 13px;
+    background-position: -4427px 0
+}
+
+.iti-flag.sg {
+    height: 14px;
+    background-position: -4449px 0
+}
+
+.iti-flag.sh {
+    height: 10px;
+    background-position: -4471px 0
+}
+
+.iti-flag.si {
+    height: 10px;
+    background-position: -4493px 0
+}
+
+.iti-flag.sj {
+    height: 15px;
+    background-position: -4515px 0
+}
+
+.iti-flag.sk {
+    height: 14px;
+    background-position: -4537px 0
+}
+
+.iti-flag.sl {
+    height: 14px;
+    background-position: -4559px 0
+}
+
+.iti-flag.sm {
+    height: 15px;
+    background-position: -4581px 0
+}
+
+.iti-flag.sn {
+    height: 14px;
+    background-position: -4603px 0
+}
+
+.iti-flag.so {
+    height: 14px;
+    background-position: -4625px 0
+}
+
+.iti-flag.sr {
+    height: 14px;
+    background-position: -4647px 0
+}
+
+.iti-flag.ss {
+    height: 10px;
+    background-position: -4669px 0
+}
+
+.iti-flag.st {
+    height: 10px;
+    background-position: -4691px 0
+}
+
+.iti-flag.sv {
+    height: 12px;
+    background-position: -4713px 0
+}
+
+.iti-flag.sx {
+    height: 14px;
+    background-position: -4735px 0
+}
+
+.iti-flag.sy {
+    height: 14px;
+    background-position: -4757px 0
+}
+
+.iti-flag.sz {
+    height: 14px;
+    background-position: -4779px 0
+}
+
+.iti-flag.ta {
+    height: 10px;
+    background-position: -4801px 0
+}
+
+.iti-flag.tc {
+    height: 10px;
+    background-position: -4823px 0
+}
+
+.iti-flag.td {
+    height: 14px;
+    background-position: -4845px 0
+}
+
+.iti-flag.tf {
+    height: 14px;
+    background-position: -4867px 0
+}
+
+.iti-flag.tg {
+    height: 13px;
+    background-position: -4889px 0
+}
+
+.iti-flag.th {
+    height: 14px;
+    background-position: -4911px 0
+}
+
+.iti-flag.tj {
+    height: 10px;
+    background-position: -4933px 0
+}
+
+.iti-flag.tk {
+    height: 10px;
+    background-position: -4955px 0
+}
+
+.iti-flag.tl {
+    height: 10px;
+    background-position: -4977px 0
+}
+
+.iti-flag.tm {
+    height: 14px;
+    background-position: -4999px 0
+}
+
+.iti-flag.tn {
+    height: 14px;
+    background-position: -5021px 0
+}
+
+.iti-flag.to {
+    height: 10px;
+    background-position: -5043px 0
+}
+
+.iti-flag.tr {
+    height: 14px;
+    background-position: -5065px 0
+}
+
+.iti-flag.tt {
+    height: 12px;
+    background-position: -5087px 0
+}
+
+.iti-flag.tv {
+    height: 10px;
+    background-position: -5109px 0
+}
+
+.iti-flag.tw {
+    height: 14px;
+    background-position: -5131px 0
+}
+
+.iti-flag.tz {
+    height: 14px;
+    background-position: -5153px 0
+}
+
+.iti-flag.ua {
+    height: 14px;
+    background-position: -5175px 0
+}
+
+.iti-flag.ug {
+    height: 14px;
+    background-position: -5197px 0
+}
+
+.iti-flag.um {
+    height: 11px;
+    background-position: -5219px 0
+}
+
+.iti-flag.us {
+    height: 11px;
+    background-position: -5241px 0
+}
+
+.iti-flag.uy {
+    height: 14px;
+    background-position: -5263px 0
+}
+
+.iti-flag.uz {
+    height: 10px;
+    background-position: -5285px 0
+}
+
+.iti-flag.va {
+    height: 15px;
+    background-position: -5307px 0
+}
+
+.iti-flag.vc {
+    height: 14px;
+    background-position: -5324px 0
+}
+
+.iti-flag.ve {
+    height: 14px;
+    background-position: -5346px 0
+}
+
+.iti-flag.vg {
+    height: 10px;
+    background-position: -5368px 0
+}
+
+.iti-flag.vi {
+    height: 14px;
+    background-position: -5390px 0
+}
+
+.iti-flag.vn {
+    height: 14px;
+    background-position: -5412px 0
+}
+
+.iti-flag.vu {
+    height: 12px;
+    background-position: -5434px 0
+}
+
+.iti-flag.wf {
+    height: 14px;
+    background-position: -5456px 0
+}
+
+.iti-flag.ws {
+    height: 10px;
+    background-position: -5478px 0
+}
+
+.iti-flag.xk {
+    height: 15px;
+    background-position: -5500px 0
+}
+
+.iti-flag.ye {
+    height: 14px;
+    background-position: -5522px 0
+}
+
+.iti-flag.yt {
+    height: 14px;
+    background-position: -5544px 0
+}
+
+.iti-flag.za {
+    height: 14px;
+    background-position: -5566px 0
+}
+
+.iti-flag.zm {
+    height: 14px;
+    background-position: -5588px 0
+}
+
+.iti-flag.zw {
+    height: 10px;
+    background-position: -5610px 0
+}
+
+.iti-flag {
+    width: 20px;
+    height: 15px;
+    box-shadow: 0 0 1px 0 #888;
+    background-image: url("../../image/flags.png");
+    background-color: #dbdbdb;
+    background-position: 100% 100%
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+    .iti-flag {
+        background-image: url("../../image/flags@2x.png")
+    }
+}
+
+.iti-flag.np {
+    background-color: transparent
+}
+
+.intl-tel-input input, .intl-tel-input input[type=text], .intl-tel-input input[type=tel] {
+    padding-left: 48px !important
+}
+
+.intl-tel-input select {
+    width: 42px !important
+}
+
+.iti-flag {
+    background-image: url(../../image/intlTelInput/flags-322c9e9ada06b487398c44f2155f96d0.png)
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+    .iti-flag {
+        background-image: url(../../image/intlTelInput/flags@2x-eceedc38612a14ac4bc296337ce6ebd6.png)
+    }
+}
+
+.intl-tel-input input.iti-invalid-key {
+    background-color: #ffc7c7 !important
+}
+
+/** JSCROP **/
+
+.jcrop-holder {
+    direction: ltr;
+    text-align: left
+}
+
+.jcrop-vline, .jcrop-hline {
+    background: #FFF url(Jcrop.gif) top left repeat;
+    font-size: 0;
+    position: absolute
+}
+
+.jcrop-vline {
+    height: 100%;
+    width: 1px !important
+}
+
+.jcrop-hline {
+    height: 1px !important;
+    width: 100%
+}
+
+.jcrop-vline.right {
+    right: 0
+}
+
+.jcrop-hline.bottom {
+    bottom: 0
+}
+
+.jcrop-handle {
+    background-color: #333;
+    border: 1px #eee solid;
+    font-size: 1px
+}
+
+.jcrop-tracker {
+    height: 100%;
+    width: 100%;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none
+}
+
+.jcrop-handle.ord-n {
+    left: 50%;
+    margin-left: -4px;
+    margin-top: -4px;
+    top: 0
+}
+
+.jcrop-handle.ord-s {
+    bottom: 0;
+    left: 50%;
+    margin-bottom: -4px;
+    margin-left: -4px
+}
+
+.jcrop-handle.ord-e {
+    margin-right: -4px;
+    margin-top: -4px;
+    right: 0;
+    top: 50%
+}
+
+.jcrop-handle.ord-w {
+    left: 0;
+    margin-left: -4px;
+    margin-top: -4px;
+    top: 50%
+}
+
+.jcrop-handle.ord-nw {
+    left: 0;
+    margin-left: -4px;
+    margin-top: -4px;
+    top: 0
+}
+
+.jcrop-handle.ord-ne {
+    margin-right: -4px;
+    margin-top: -4px;
+    right: 0;
+    top: 0
+}
+
+.jcrop-handle.ord-se {
+    bottom: 0;
+    margin-bottom: -4px;
+    margin-right: -4px;
+    right: 0
+}
+
+.jcrop-handle.ord-sw {
+    bottom: 0;
+    left: 0;
+    margin-bottom: -4px;
+    margin-left: -4px
+}
+
+.jcrop-dragbar.ord-n, .jcrop-dragbar.ord-s {
+    height: 7px;
+    width: 100%
+}
+
+.jcrop-dragbar.ord-e, .jcrop-dragbar.ord-w {
+    height: 100%;
+    width: 7px
+}
+
+.jcrop-dragbar.ord-n {
+    margin-top: -4px
+}
+
+.jcrop-dragbar.ord-s {
+    bottom: 0;
+    margin-bottom: -4px
+}
+
+.jcrop-dragbar.ord-e {
+    margin-right: -4px;
+    right: 0
+}
+
+.jcrop-dragbar.ord-w {
+    margin-left: -4px
+}
+
+.jcrop-light .jcrop-vline, .jcrop-light .jcrop-hline {
+    background: #FFF;
+    filter: Alpha(opacity=70) !important;
+    opacity: .70 !important
+}
+
+.jcrop-light .jcrop-handle {
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    background-color: #000;
+    border-color: #FFF;
+    border-radius: 3px
+}
+
+.jcrop-dark .jcrop-vline, .jcrop-dark .jcrop-hline {
+    background: #000;
+    filter: Alpha(opacity=70) !important;
+    opacity: .7 !important
+}
+
+.jcrop-dark .jcrop-handle {
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    background-color: #FFF;
+    border-color: #000;
+    border-radius: 3px
+}
+
+.jcrop-holder img, img.jcrop-preview {
+    max-width: none
+}
+
+/** EXTENSIONS **/
+.extensions .extensions_boxes {
+    margin-left: 45px;
+    margin-right: 45px
+}
+
+.extensions .extensions_boxes .col-md-2 {
+    border: 1px solid #e0e0e0;
+    min-width: 360px;
+    max-width: 400px;
+    min-height: 185px;
+    padding-top: 20px
+}
+
+.extensions .extensions_boxes .col-md-2 .name {
+    font-size: 1.2em;
+    font-weight: bold
+}
+
+.extensions .extensions_boxes .col-md-2 .name a {
+    text-decoration: none;
+    color: #313140
+}
+
+.extensions .extensions_boxes .col-md-2 .name a:hover {
+    text-decoration: underline
+}
+
+.extensions .extensions_boxes .col-md-2 .ext_image {
+    min-height: 140px;
+    display: inline-block;
+    float: left;
+    margin-right: 14px
+}
+
+.extensions .extensions_boxes .col-md-2 .ext_info {
+    min-height: 140px
+}
+
+.extensions .extensions_boxes .col-md-2 label {
+    font-weight: normal;
+    margin-left: 3px;
+    vertical-align: middle
+}
+
+.extensions .extensions_boxes .col-md-2 .short_desc {
+    margin-top: 10px;
+    min-height: 80px
+}
+
+.extensions .extensions_boxes .col-md-2 .extension_state {
+    margin-right: 20px;
+    padding-right: 25px;
+    border-right: 1px solid;
+    display: inline
+}
+
+.extensions .extensions_boxes .col-md-2 .btn_extension {
+    color: #fff;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: 50px;
+    font-weight: 600;
+    text-transform: capitalize
+}
+
+.extensions .extensions_boxes .more_info a {
+    float: left;
+    margin-top: 10px;
+    color: #1d8fdc
+}
+
+.extensions .extensions_boxes .ext_inactive .ext_info .name a, .extensions .extensions_boxes .ext_inactive .short_desc {
+    color: #878787
+}
+
+.extensions .extensions_boxes .ext_inactive .activate {
+    visibility: hidden
+}
+
+.extensions .extensions_boxes .ext_inactive .ext_ribbon {
+    position: absolute;
+    top: 0;
+    right: 0
+}
+
+.extensions .extensions_boxes .activate {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    float: left
+}
+
+.extensions .extensions_boxes .activate a {
+    color: #00c3f2;
+    margin-top: -5px
+}
+
+@media (min-width: 992px) {
+    .extensions .extensions_boxes .ext_2 {
+        border-left: 0
+    }
+
+    .extensions .extensions_boxes .row_1 .ext_1, .extensions .extensions_boxes .row_1 .ext_2, .extensions .extensions_boxes .row_2 .ext_1, .extensions .extensions_boxes .row_2 .ext_2, .extensions .extensions_boxes .row_3 .ext_1, .extensions .extensions_boxes .row_3 .ext_2 {
+        border-top: 0
+    }
+}
+
+.extension_info .ext_title {
+    font-size: 18px;
+    display: inline;
+    margin-right: 15px
+}
+
+.extension_info .trial_time {
+    display: inline;
+    font-size: 15px
+}
+
+.extension_info .section_title {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin: 20px 0 4px 0
+}
+
+.extension_info .ext_image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.extension_info .ext_price {
+    color: #17d38f;
+    margin-top: 5px;
+    font-size: 13px;
+    text-align: center
+}
+
+.extension_info .ext_price_title, .extension_info .later {
+    display: inline;
+    font-size: 13px;
+    color: #777
+}
+
+.extension_info .title_with_price {
+    float: left;
+    width: 75%
+}
+
+.extension_info .title_with_price .btn, .extension_info .title_with_price .versum-pagination .page-link, .versum-pagination .extension_info .title_with_price .page-link, .extension_info .title_with_price .versum-pagination .current, .versum-pagination .extension_info .title_with_price .current, .extension_info .title_with_price .versum-pagination .ellipse, .versum-pagination .extension_info .title_with_price .ellipse, .extension_info .title_with_price .ui-dialog-buttonset button, .ui-dialog-buttonset .extension_info .title_with_price button {
+    float: right
+}
+
+.extension_info .desc {
+    float: left;
+    font-size: 1.1em;
+    width: 75%;
+    margin-bottom: 20px;
+    padding-top: 20px
+}
+
+.extension_info .fiscal_requirements ol {
+    padding-left: 15px
+}
+
+.extension_info .available_soon {
+    text-align: center;
+    margin-top: 10px
+}
+
+.extension_info .notify_me {
+    background-color: #ffd806;
+    border-color: #ffd806;
+    color: #000;
+    font-weight: 600;
+    margin-top: 5px
+}
+
+.extension_info .notify_me:hover {
+    background-color: #ffd806;
+    border-color: #ffd806;
+    color: #000
+}
+
+.extension_info .update_extension {
+    clear: both;
+    text-align: center
+}
+
+.extension_info .update_extension .disable_extension_link {
+    display: block;
+    color: gray;
+    font-weight: 600;
+    margin-top: 5px
+}
+
+.extension_info .update_extension .not_available {
+    color: #898989;
+    margin-bottom: 10px
+}
+
+.extension_info .btn_disable {
+    text-align: center
+}
+
+.extension_info .btn_disable button {
+    color: grey;
+    background: 0;
+    border: 0;
+    margin-right: 0 !important;
+    font-size: 12px;
+    font-weight: 600
+}
+
+.extension_info .btn_disable button .icon, .extension_info .btn_disable button .navbar .navbar-right .omnibox-wrapper:before, .navbar .navbar-right .extension_info .btn_disable button .omnibox-wrapper:before, .extension_info .btn_disable button .dashboard .change_box .change_value.increase strong:after, .dashboard .change_box .change_value.increase .extension_info .btn_disable button strong:after, .extension_info .btn_disable button .dashboard .change_box .change_value.decrease strong:after, .dashboard .change_box .change_value.decrease .extension_info .btn_disable button strong:after {
+    display: none
+}
+
+.extension_info .btn_activate {
+    text-align: center
+}
+
+.extension_info .btn_activate button {
+    color: #fff;
+    background: #17d38f;
+    border: #17d38f;
+    margin-right: 0 !important;
+    font-weight: 600
+}
+
+.extension_info .btn_activate button .icon, .extension_info .btn_activate button .navbar .navbar-right .omnibox-wrapper:before, .navbar .navbar-right .extension_info .btn_activate button .omnibox-wrapper:before, .extension_info .btn_activate button .dashboard .change_box .change_value.increase strong:after, .dashboard .change_box .change_value.increase .extension_info .btn_activate button strong:after, .extension_info .btn_activate button .dashboard .change_box .change_value.decrease strong:after, .dashboard .change_box .change_value.decrease .extension_info .btn_activate button strong:after {
+    display: none
+}
+
+.extension_info .inactive {
+    color: grey
+}
+
+.extension_info .slider {
+    clear: both;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 828px
+}
+
+.extension_info .slider .bx-viewport {
+    border: 1px solid #ddd
+}
+
+.extension_info .slider .bx-wrapper {
+    margin-bottom: 10px
+}
+
+.extension_info .slider .bxslider img {
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%
+}
+
+.extension_info .slider #bx-pager {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0
+}
+
+.extension_info .slider #bx-pager a img {
+    border: 1px solid #ccc;
+    padding: 3px
+}
+
+.extension_info .slider #bx-pager a.active img, .extension_info .slider #bx-pager .versum-pagination a.current img, .versum-pagination .extension_info .slider #bx-pager a.current img {
+    border: 1px solid #5280dd
+}
+
+.extensions_boxes .state, .extension_info .state {
+    font-size: 13px;
+    font-weight: 600
+}
+
+.extensions_boxes .active, .extensions_boxes .versum-pagination .current, .versum-pagination .extensions_boxes .current, .extension_info .active, .extension_info .versum-pagination .current, .versum-pagination .extension_info .current {
+    text-align: center;
+    color: #17d38f;
+    display: inline
+}
+
+.extensions_boxes .btn, .extensions_boxes .versum-pagination .page-link, .versum-pagination .extensions_boxes .page-link, .extensions_boxes .versum-pagination .current, .versum-pagination .extensions_boxes .current, .extensions_boxes .versum-pagination .ellipse, .versum-pagination .extensions_boxes .ellipse, .extensions_boxes .ui-dialog-buttonset button, .ui-dialog-buttonset .extensions_boxes button {
+    font-size: 12px;
+    margin-top: 6px;
+    padding: 2px 4px
+}
+
+.extensions_boxes .btn .icon, .extensions_boxes .versum-pagination .page-link .icon, .versum-pagination .extensions_boxes .page-link .icon, .extensions_boxes .versum-pagination .current .icon, .versum-pagination .extensions_boxes .current .icon, .extensions_boxes .versum-pagination .ellipse .icon, .versum-pagination .extensions_boxes .ellipse .icon, .extensions_boxes .ui-dialog-buttonset button .icon, .ui-dialog-buttonset .extensions_boxes button .icon, .extensions_boxes .btn .navbar .navbar-right .omnibox-wrapper:before, .navbar .navbar-right .extensions_boxes .btn .omnibox-wrapper:before, .extensions_boxes .versum-pagination .page-link .navbar .navbar-right .omnibox-wrapper:before, .navbar .navbar-right .extensions_boxes .versum-pagination .page-link .omnibox-wrapper:before, .versum-pagination .extensions_boxes .page-link .navbar .navbar-right .omnibox-wrapper:before, .navbar .navbar-right .versum-pagination .extensions_boxes .page-link .omnibox-wrapper:before, .extensions_boxes .versum-pagination .current .navbar .navbar-right .omnibox-wrapper:before, .navbar .navbar-right .extensions_boxes .versum-pagination .current .omnibox-wrapper:before, .versum-pagination .extensions_boxes .current .navbar .navbar-right .omnibox-wrapper:before, .navbar .navbar-right .versum-pagination .extensions_boxes .current .omnibox-wrapper:before, .extensions_boxes .versum-pagination .ellipse .navbar .navbar-right .omnibox-wrapper:before, .navbar .navbar-right .extensions_boxes .versum-pagination .ellipse .omnibox-wrapper:before, .versum-pagination .extensions_boxes .ellipse .navbar .navbar-right .omnibox-wrapper:before, .navbar .navbar-right .versum-pagination .extensions_boxes .ellipse .omnibox-wrapper:before, .extensions_boxes .ui-dialog-buttonset button .navbar .navbar-right .omnibox-wrapper:before, .navbar .navbar-right .extensions_boxes .ui-dialog-buttonset button .omnibox-wrapper:before, .ui-dialog-buttonset .extensions_boxes button .navbar .navbar-right .omnibox-wrapper:before, .navbar .navbar-right .ui-dialog-buttonset .extensions_boxes button .omnibox-wrapper:before, .extensions_boxes .btn .dashboard .change_box .change_value.increase strong:after, .dashboard .change_box .change_value.increase .extensions_boxes .btn strong:after, .extensions_boxes .versum-pagination .page-link .dashboard .change_box .change_value.increase strong:after, .dashboard .change_box .change_value.increase .extensions_boxes .versum-pagination .page-link strong:after, .versum-pagination .extensions_boxes .page-link .dashboard .change_box .change_value.increase strong:after, .dashboard .change_box .change_value.increase .versum-pagination .extensions_boxes .page-link strong:after, .extensions_boxes .versum-pagination .current .dashboard .change_box .change_value.increase strong:after, .dashboard .change_box .change_value.increase .extensions_boxes .versum-pagination .current strong:after, .versum-pagination .extensions_boxes .current .dashboard .change_box .change_value.increase strong:after, .dashboard .change_box .change_value.increase .versum-pagination .extensions_boxes .current strong:after, .extensions_boxes .versum-pagination .ellipse .dashboard .change_box .change_value.increase strong:after, .dashboard .change_box .change_value.increase .extensions_boxes .versum-pagination .ellipse strong:after, .versum-pagination .extensions_boxes .ellipse .dashboard .change_box .change_value.increase strong:after, .dashboard .change_box .change_value.increase .versum-pagination .extensions_boxes .ellipse strong:after, .extensions_boxes .ui-dialog-buttonset button .dashboard .change_box .change_value.increase strong:after, .dashboard .change_box .change_value.increase .extensions_boxes .ui-dialog-buttonset button strong:after, .ui-dialog-buttonset .extensions_boxes button .dashboard .change_box .change_value.increase strong:after, .dashboard .change_box .change_value.increase .ui-dialog-buttonset .extensions_boxes button strong:after, .extensions_boxes .btn .dashboard .change_box .change_value.decrease strong:after, .dashboard .change_box .change_value.decrease .extensions_boxes .btn strong:after, .extensions_boxes .versum-pagination .page-link .dashboard .change_box .change_value.decrease strong:after, .dashboard .change_box .change_value.decrease .extensions_boxes .versum-pagination .page-link strong:after, .versum-pagination .extensions_boxes .page-link .dashboard .change_box .change_value.decrease strong:after, .dashboard .change_box .change_value.decrease .versum-pagination .extensions_boxes .page-link strong:after, .extensions_boxes .versum-pagination .current .dashboard .change_box .change_value.decrease strong:after, .dashboard .change_box .change_value.decrease .extensions_boxes .versum-pagination .current strong:after, .versum-pagination .extensions_boxes .current .dashboard .change_box .change_value.decrease strong:after, .dashboard .change_box .change_value.decrease .versum-pagination .extensions_boxes .current strong:after, .extensions_boxes .versum-pagination .ellipse .dashboard .change_box .change_value.decrease strong:after, .dashboard .change_box .change_value.decrease .extensions_boxes .versum-pagination .ellipse strong:after, .versum-pagination .extensions_boxes .ellipse .dashboard .change_box .change_value.decrease strong:after, .dashboard .change_box .change_value.decrease .versum-pagination .extensions_boxes .ellipse strong:after, .extensions_boxes .ui-dialog-buttonset button .dashboard .change_box .change_value.decrease strong:after, .dashboard .change_box .change_value.decrease .extensions_boxes .ui-dialog-buttonset button strong:after, .ui-dialog-buttonset .extensions_boxes button .dashboard .change_box .change_value.decrease strong:after, .dashboard .change_box .change_value.decrease .ui-dialog-buttonset .extensions_boxes button strong:after {
+    margin-right: 0
+}
+
+.disable_extension {
+    margin-left: 170px
+}
+
+.disable_extension h2 {
+    color: #d9534f;
+    font-weight: 600
+}
+
+.disable_extension ul {
+    padding-left: 15px
+}
+
+.disable_extension .consequences_title {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin: 30px 0 10px 0
+}
+
+.disable_extension .are_you_sure {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin: 30px 0 20px 0
+}
+
+.disable_extension .btn_disable button {
+    background: #d9534f;
+    border: #d9534f;
+    font-weight: 600;
+    float: left;
+    margin-right: 50%
+}
+
+.disable_extension .btn_disable button .icon, .disable_extension .btn_disable button .navbar .navbar-right .omnibox-wrapper:before, .navbar .navbar-right .disable_extension .btn_disable button .omnibox-wrapper:before, .disable_extension .btn_disable button .dashboard .change_box .change_value.increase strong:after, .dashboard .change_box .change_value.increase .disable_extension .btn_disable button strong:after, .disable_extension .btn_disable button .dashboard .change_box .change_value.decrease strong:after, .dashboard .change_box .change_value.decrease .disable_extension .btn_disable button strong:after {
+    display: none
+}
+
+.disable_extension .cancel_disabling {
+    border-color: gray;
+    color: gray
+}
+
+.check_extensions {
+    margin-left: 25px
+}
+
+.extensions_settings {
+    border-bottom: 1px solid #e0e0e0;
+    margin: 20px 25px;
+    font-weight: 600;
+    font-size: 12px;
+    max-width: 900px
+}
+/** LUMO **/
+.lumo-test-info {
+    border: 1px solid #22c4d6;
+    color: #22c4d6;
+    background-color: #d9fffb;
+    border-radius: 3px;
+    padding: 3px
+}
+
+.lumo-setting-icon {
+    background: url(../../image/lumo_business/settings_icons-2f1401d8c3e1dfa41e2ab900e4da8f2e.png) no-repeat top left;
+    display: block;
+    margin: 0 auto
+}
+
+.lumo-setting-icon-activities {
+    background-position: 0 0;
+    width: 53px;
+    height: 57px
+}
+
+.lumo-setting-icon-communication {
+    background-position: 0 -107px;
+    width: 58px;
+    height: 55px
+}
+
+.lumo-setting-icon-mode {
+    background-position: 0 -212px;
+    width: 59px;
+    height: 60px
+}
+
+.lumo-setting-icon-prize_categories {
+    background-position: 0 -322px;
+    width: 57px;
+    height: 57px
+}
+
+.lumo-setting-icon-recommendations {
+    background-position: 0 -429px;
+    width: 59px;
+    height: 60px
+}
+
+.lumo-setting-icon-rules {
+    background-position: 0 -539px;
+    width: 59px;
+    height: 58px
+}
+
+.lumo-setting-icon-social {
+    background-position: 0 -647px;
+    width: 74px;
+    height: 60px
+}
+
+.lumo-setting-icon-tutorial {
+    background-position: 0 -757px;
+    width: 65px;
+    height: 55px
+}
+
+.lumo-icon {
+    background: url(../../image/lumo_business/icons-e6eeadbb7d8d34c28fead0c86786e24d.png) no-repeat top left;
+    display: inline-block;
+    vertical-align: middle
+}
+
+.lumo-icon-add-photo {
+    background-position: 0 0;
+    width: 75px;
+    height: 60px
+}
+
+.lumo-icon-add {
+    background-position: 0 -110px;
+    width: 15px;
+    height: 15px
+}
+
+.lumo-icon-birthday-blue {
+    background-position: 0 -175px;
+    width: 17px;
+    height: 20px
+}
+
+.lumo-icon-birthday {
+    background-position: 0 -245px;
+    width: 17px;
+    height: 20px
+}
+
+.lumo-icon-collect-prize-blue {
+    background-position: 0 -315px;
+    width: 12px;
+    height: 17px
+}
+
+.lumo-icon-collect-prize {
+    background-position: 0 -382px;
+    width: 12px;
+    height: 17px
+}
+
+.lumo-icon-completed {
+    background-position: 0 -449px;
+    width: 19px;
+    height: 19px
+}
+
+.lumo-icon-correction {
+    background-position: 0 -518px;
+    width: 17px;
+    height: 19px
+}
+
+.lumo-icon-customers {
+    background-position: 0 -587px;
+    width: 24px;
+    height: 22px
+}
+
+.lumo-icon-first-purchase-blue {
+    background-position: 0 -659px;
+    width: 18px;
+    height: 16px
+}
+
+.lumo-icon-first-purchase {
+    background-position: 0 -725px;
+    width: 18px;
+    height: 16px
+}
+
+.lumo-icon-invitation-blue {
+    background-position: 0 -791px;
+    width: 14px;
+    height: 17px
+}
+
+.lumo-icon-invitation {
+    background-position: 0 -858px;
+    width: 14px;
+    height: 17px
+}
+
+.lumo-icon-logo-blue {
+    background-position: 0 -925px;
+    width: 17px;
+    height: 15px
+}
+
+.lumo-icon-logo {
+    background-position: 0 -990px;
+    width: 17px;
+    height: 15px
+}
+
+.lumo-icon-lumopl {
+    background-position: 0 -1055px;
+    width: 78px;
+    height: 21px
+}
+
+.lumo-icon-nameday-blue {
+    background-position: 0 -1126px;
+    width: 16px;
+    height: 21px
+}
+
+.lumo-icon-nameday {
+    background-position: 0 -1197px;
+    width: 16px;
+    height: 21px
+}
+
+.lumo-icon-order {
+    background-position: 0 -1268px;
+    width: 28px;
+    height: 24px
+}
+
+.lumo-icon-points-blue {
+    background-position: 0 -1342px;
+    width: 17px;
+    height: 16px
+}
+
+.lumo-icon-points {
+    background-position: 0 -1408px;
+    width: 17px;
+    height: 16px
+}
+
+.lumo-icon-prize-black {
+    background-position: 0 -1474px;
+    width: 15px;
+    height: 18px
+}
+
+.lumo-icon-prize {
+    background-position: 0 -1542px;
+    width: 15px;
+    height: 18px
+}
+
+.lumo-icon-remove {
+    background-position: 0 -1610px;
+    width: 15px;
+    height: 15px
+}
+
+.lumo-icon-select-prize-blue {
+    background-position: 0 -1675px;
+    width: 15px;
+    height: 19px
+}
+
+.lumo-icon-select-prize {
+    background-position: 0 -1744px;
+    width: 15px;
+    height: 19px
+}
+
+.lumo-icon-settings {
+    background-position: 0 -1813px;
+    width: 17px;
+    height: 17px
+}
+
+.lumo-icon-step {
+    background-position: 0 -1880px;
+    width: 15px;
+    height: 28px
+}
+
+.lumo-icon-test {
+    background-position: -128px 0;
+    width: 14px;
+    height: 17px
+}
+
+.lumo-icon-transactions-black {
+    background-position: -128px -67px;
+    width: 17px;
+    height: 18px
+}
+
+.lumo-icon-transactions {
+    background-position: -128px -135px;
+    width: 17px;
+    height: 18px
+}

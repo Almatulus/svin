@@ -1,0 +1,30 @@
+<svg width="35" height="35" viewBox="0 0 35 35" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>calendar-7</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(1004 -329)">
+<g id="calendar-7">
+<g id="Group 3">
+<mask id="mask0_outline" mask-type="alpha">
+<g id="Clip 2">
+<use xlink:href="#path0_fill" transform="translate(-1004 329)" fill="#FFFFFF"/>
+</g>
+</mask>
+<g id="Fill 1" mask="url(#mask0_outline)">
+<use xlink:href="#path1_fill" transform="translate(-1004 329)" fill="#1E282E"/>
+</g>
+</g>
+<g id="Fill 4">
+<use xlink:href="#path2_fill" transform="translate(-991 342)" fill="url(#paint2_linear)"/>
+</g>
+</g>
+</g>
+<defs>
+<linearGradient id="paint2_linear" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(0 22 -22 0 11 0)">
+<stop offset="0" stop-color="#1BD4D1"/>
+<stop offset="1" stop-color="#1F85D3"/>
+</linearGradient>
+<path id="path0_fill" fill-rule="evenodd" d="M 6.04028e-16 29.5312L 6.04028e-16 0L 16.134 0L 32.2681 0L 32.2681 29.5312L 6.04028e-16 29.5312Z"/>
+<path id="path1_fill" fill-rule="evenodd" d="M 23.7794 9.84375C 27.0066 9.84375 29.8941 10.9922 32.2721 12.7969L 32.2721 4.92188C 32.2721 4.10156 31.4228 3.28125 30.5735 3.28125L 28.875 3.28125L 28.875 1.64062C 28.875 0.65625 28.1956 0 27.1765 0C 26.1574 0 25.4779 0.65625 25.4779 1.64062L 25.4779 3.28125L 8.49265 3.28125L 8.49265 1.64062C 8.49265 0.65625 7.81324 0 6.79412 0C 5.775 0 5.09559 0.65625 5.09559 1.64062L 5.09559 3.28125L 1.69853 3.28125C 0.849265 3.28125 0 3.9375 0 4.92188L 0 27.8906C 0 28.875 0.849265 29.5312 1.69853 29.5312L 12.0596 29.5312C 10.8706 27.5625 10.1912 25.2656 10.1912 22.9688C 10.1912 15.75 16.3059 9.84375 23.7794 9.84375Z"/>
+<path id="path2_fill" fill-rule="evenodd" d="M 14.6667 12.8333L 11 12.8333C 9.90002 12.8333 9.16669 12.1 9.16669 11L 9.16669 5.49999C 9.16669 4.39999 9.90002 3.66666 11 3.66666C 12.1 3.66666 12.8334 4.39999 12.8334 5.49999L 12.8334 9.16666L 14.6667 9.16666C 15.7667 9.16666 16.5 9.89999 16.5 11C 16.5 12.1 15.7667 12.8333 14.6667 12.8333ZM 11 0C 4.95 0 0 4.95 0 11C 0 17.05 4.95 22 11 22C 17.05 22 22 17.05 22 11C 22 4.95 17.05 0 11 0Z"/>
+</defs>
+</svg>

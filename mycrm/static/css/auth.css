@@ -1,0 +1,35 @@
+html {
+  height: 100% !important;
+  position: relative; }
+
+body {
+  height: 100%; }
+
+.logo {
+  margin: 6em auto 3em;
+  text-align: center; }
+  .logo .img {
+    height: 90px; }
+
+.reone img {
+  height: 20px;
+  background-size: 100%;
+  margin: 0 0 -4px 0.6em; }
+
+.reone-phone-input {
+  width: 100%;
+  max-width: 304px; }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  font-size: 16px;
+  }
+  .footer p {
+    padding: 1.6em 0 0; }
+
+.g-recaptcha div, .restore-form, .reone-phone-input, .reone-key-input {
+  float: none;
+  margin: 0 auto; }

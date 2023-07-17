@@ -1,0 +1,45 @@
+version: "3.1"
+services:
+  redis:
+    image: redis:alpine
+    container_name: mycrm_redis
+
+  rabbitmq:
+    image: rabbitmq:alpine
+    container_name: mycrm_rabbitmq
+
+  postgres:
+    image: postgres:10.19-bullseye
+    container_name: mycrm_postgres
+    volumes:
+      - "/home/almat/Рабочий стол/Projects/Frontend/boribaycrm/postgres_share:/postgres_share"
+      - "/home/almat/Рабочий стол/Projects/Frontend/boribaycrm/postgres_share/data:/var/lib/postgresql/data"
+    environment:
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_USERNAME}
+      - POSTGRES_DB=${DB_DATABASE}
+    ports:
+      - "5432:5432"
+
+  webserver:
+    image: nginx:alpine
+    container_name: mycrm_webserver
+    volumes:
+      - ./:/application
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    links:
+      - php-fpm
+    ports:
+      - "8081:81"
+      - "8082:82"
+
+  php-fpm:
+    build: .docker
+    container_name: mycrm_php-fpm
+    volumes:
+      - ./:/application
+    links:
+      - redis
+      - rabbitmq
+      - postgres
+

@@ -1,0 +1,15 @@
+class_name: UnitTester
+bootstrap: false
+modules:
+  enabled:
+    - \core\tests\FactoryMuffinHelper
+    - \core\tests\JsonTypesHelper
+    - Filesystem
+    - Yii2:
+        part:
+          - fixtures
+          - ORM
+    - Db:
+        dsn: 'pgsql:host=127.0.0.1;dbname=db_reone_test'
+        user: 'postgres'
+        password: 'password'

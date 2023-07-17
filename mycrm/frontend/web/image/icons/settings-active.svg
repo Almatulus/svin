@@ -1,0 +1,22 @@
+<svg width="31" height="17" viewBox="0 0 31 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>Group 19</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-409 -289)">
+<g id="Group 19">
+<g id="Oval 5">
+<use xlink:href="#path0_fill" transform="translate(427.452 292.69)" fill="url(#paint0_linear)"/>
+</g>
+<g id="Combined Shape">
+<use xlink:href="#path1_fill" transform="translate(409 289)" fill="#FFFFFF"/>
+</g>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(0 8.85714 -8.85714 0 4.42857 0)">
+<stop offset="0" stop-color="#1BD4D1"/>
+<stop offset="1" stop-color="#1F85D3"/>
+</linearGradient>
+<path id="path0_fill" fill-rule="evenodd" d="M 4.42857 8.85714C 6.8744 8.85714 8.85714 6.8744 8.85714 4.42857C 8.85714 1.98274 6.8744 0 4.42857 0C 1.98274 0 0 1.98274 0 4.42857C 0 6.8744 1.98274 8.85714 4.42857 8.85714Z"/>
+<path id="path1_fill" fill-rule="evenodd" d="M 8.11905 0C 3.63501 0 0 3.63501 0 8.11905C 0 12.6031 3.63501 16.2381 8.11905 16.2381L 22.881 16.2381C 27.365 16.2381 31 12.6031 31 8.11905C 31 3.63501 27.365 0 22.881 0L 8.11905 0ZM 8.11905 2.21429C 4.85794 2.21429 2.21429 4.85794 2.21429 8.11905C 2.21429 11.3802 4.85794 14.0238 8.11905 14.0238L 22.881 14.0238C 26.1421 14.0238 28.7857 11.3802 28.7857 8.11905C 28.7857 4.85794 26.1421 2.21429 22.881 2.21429L 8.11905 2.21429Z"/>
+</defs>
+</svg>
